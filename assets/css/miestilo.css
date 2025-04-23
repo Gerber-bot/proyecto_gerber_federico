@@ -1,0 +1,699 @@
+/* ====================== */
+/*        VARIABLES       */
+/* ====================== */
+:root {
+  /* Paleta de grises oscuros */
+  --gray-900: #0e0e0e;
+  --gray-800: #1a1a1a;
+  --gray-700: #2a2a2a;
+  --gray-600: #3d3d3d;
+  --gray-500: #555555;
+  --gray-400: #777777;
+  --gray-300: #999999;
+  --gray-200: #bfbfbf;
+  --gray-100: #e0e0e0;
+  
+  /* Colores principales */
+  --primary-color: #ffc107;
+  --text-color: #333;
+  --text-dark: #212529;
+  --text-light: #fff;
+  --bg-light: #f8f9fa;
+}
+
+/* ====================== */
+/*        BASE            */
+/* ====================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #dddddd; 
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Tipografía uniforme */
+body, p, a, li, span, label, input, select, textarea, button {
+  font-family: inherit !important;
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit !important;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* ====================== */
+/*     COMPONENTES        */
+/* ====================== */
+
+/* ----- Encabezado & Navbar ----- */
+.navbar-dark .navbar-nav .nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+  padding-bottom: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+  transform: translateY(-2px);
+}
+
+.navbar-dark .navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+  height: 80px;
+}
+
+.navbar-brand:hover img {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--primary-color);
+  color: #000 !important;
+  border-color: var(--primary-color);
+}
+
+.dropdown-menu {
+  z-index: 1051;
+  position: absolute !important;
+}
+
+/* ----- Barra Principal ----- */
+.barra-principal {
+  background-color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.barra-principal a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  position: relative;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  z-index: 1;
+  letter-spacing: 0.5px;
+}
+
+.barra-principal a:hover {
+  color: var(--primary-color) !important;
+}
+
+.barra-principal a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 193, 7, 0.2);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.barra-principal a:hover::after {
+  width: 100%;
+}
+
+/* ----- Carrusel ----- */
+.carousel {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  border: 1px solid var(--gray-700);
+  background-color: var(--gray-800);
+}
+
+.carousel-item img {
+  max-height: 60vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.carousel-caption h2 {
+  font-size: 2rem;
+  color: var(--gray-100);
+  margin-bottom: 15px;
+}
+
+.carousel-caption .btn {
+  background-color: var(--gray-600);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 4px;
+  margin: 5px;
+  border: none;
+}
+
+/* ----- Sección Marcas ----- */
+.marcas {
+  background-color: var(--gray-900);
+  text-align: center;
+  padding: 50px 20px;
+  border-top: 2px solid var(--gray-700);
+  border-bottom: 2px solid var(--gray-700);
+}
+
+.marcas h2 {
+  color: var(--gray-100);
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  padding: 10px 25px;
+  display: inline-block;
+  border: 2px solid var(--gray-600);
+  border-radius: 25px;
+}
+
+.contenedor-marcas {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.marca {
+  width: 120px;
+  padding: 15px;
+  background: var(--gray-800);
+  border-radius: 10px;
+  border: 1px solid var(--gray-600);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.marca:hover {
+  transform: translateY(-5px);
+  border-color: var(--gray-400);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.marca img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--gray-500);
+  padding: 3px;
+  background: var(--gray-900);
+  object-fit: contain;
+}
+
+.marca p {
+  color: var(--gray-200);
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ----- Sección Conócenos ----- */
+.seccion-conocenos {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+}
+
+.header-conocenos {
+  margin-bottom: 60px;
+}
+
+.titulo-principal {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.subtitulo {
+  font-size: 1.3rem;
+  color: #6c757d;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.item-conocenos {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.inverso {
+  flex-direction: row-reverse;
+}
+
+.imagen-conocenos {
+  flex: 1;
+}
+
+.imagen-conocenos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+.texto-conocenos {
+  flex: 1;
+  padding: 50px;
+}
+
+.texto-conocenos h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.separador {
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  margin-bottom: 25px;
+}
+
+.texto-conocenos p {
+  font-size: 1.1rem;
+  color: #495057;
+  line-height: 1.8;
+}
+
+/* ----- Catálogo ----- */
+/* ----- Secciones generales ----- */
+.contenido-catalogo {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+.titulo-seccion {
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-seccion::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--gray-500);
+}
+
+/* ----- Servicios ----- */
+/* ----- Secciones generales ----- */
+.contenido-servicios {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+.titulo-seccion {
+  font-size: 2.4rem; 
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.titulo-seccion::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px; 
+  height: 4px; 
+  background: var(--gray-500);
+}
+
+/* ----- Recuadro general ----- */
+.recuadro-servicios {
+  padding: 30px;
+  background: #000000; 
+  border-radius: 15px; 
+  border: 1px solid #e0e0e0;
+  color: #ffffff; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ----- Tarjetas de servicios ----- */
+.card-servicio {
+  background-color: transparent;
+  color: #ffffff; 
+  padding: 0; 
+  text-align: center;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en la tarjeta */
+.card-servicio:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+}
+
+/* ----- Imagen dentro de tarjeta ----- */
+.img-box {
+  width: 100%;
+  height: 350px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #333; 
+}
+
+/* Efecto en la imagen */
+.img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+}
+
+/* Efecto hover en la imagen */
+.card-servicio:hover .img-box img {
+  transform: scale(1.1); 
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+}
+
+/* ----- Texto debajo de la imagen ----- */
+.card-servicio h3 {
+  margin-top: 20px; 
+  font-size: 1.6rem; 
+  font-weight: 600; 
+  color: #ffffff;
+}
+
+.card-servicio p {
+  font-size: 1.1rem;
+  color: #ddd; 
+  margin-top: 10px;
+}
+
+/* Efecto al pasar el mouse sobre el título */
+.card-servicio:hover h3 {
+  color: var(--gray-500); 
+}
+
+/* ----- Experiencias Clientes ----- */
+.experiencias h2 {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.experiencia-card img {
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.experiencia-card .card-body {
+  background-color: #fff;
+}
+
+.experiencia-card .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.experiencia-card .card-text {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+}
+
+/* ----- Pie de Página ----- */
+
+.pie-pagina {
+  background-color: #000;
+  color: var(--text-light);
+  padding: 50px 5% 40px;
+  border-top: 2px solid var(--primary-color);
+}
+
+.contenedor-pie {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.columna-pie h5,
+.columna-pie span,
+.columna-pie a {
+  color: white !important;
+}
+
+.columna-pie .text-muted {
+  color: white !important;
+}
+
+
+.columna-pie {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+}
+
+.columna-pie h4 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.columna-pie a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.columna-pie a:hover {
+  color: var(--primary-color) !important;
+  transform: translateX(5px);
+}
+
+/* Responsive para footer */
+@media (max-width: 768px) {
+  .contenedor-pie {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .columna-pie {
+    min-width: 100%;
+  }
+}
+
+/* ----- Mi Perfil ----- */
+.perfil-section {
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-body ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.card-body ul li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* ====================== */
+/*        UTILIDADES      */
+/* ====================== */
+#conocenos {
+  scroll-margin-top: 100px;
+}
+
+/* ====================== */
+/*      RESPONSIVE        */
+/* ====================== */
+@media (max-width: 992px) {
+  .titulo-seccion {
+    font-size: 2rem;
+  }
+  
+  .item-conocenos {
+    flex-direction: column;
+  }
+  
+  .imagen-conocenos img {
+    min-height: 300px;
+  }
+  
+  .texto-conocenos {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Barra principal */
+  .barra-principal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 10px;
+  }
+
+  .barra-principal a {
+    font-size: 11px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    flex: none;
+  }
+
+  .navbar-brand img {
+    height: 60px;
+  }
+
+  /* Carrusel */
+  .carousel-item img {
+    max-height: 50vh;
+  }
+
+  /* Marcas */
+  .marcas {
+    padding: 30px 15px;
+  }
+
+  .marca {
+    width: 100px;
+    padding: 12px;
+  }
+
+  .marca img {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Conócenos */
+  .titulo-principal {
+    font-size: 2.2rem;
+  }
+  
+  .subtitulo {
+    font-size: 1.1rem;
+  }
+  
+  .texto-conocenos h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Servicios */
+  .recuadro-servicios {
+    padding: 20px;
+  }
+
+  .servicio-item {
+    margin-bottom: 25px;
+    padding: 15px;
+  }
+
+  .servicio-item img,
+  .card-servicio img {
+    height: 160px;
+  }
+
+  .servicio-item h4,
+  .card-servicio h3 {
+    font-size: 1.2rem;
+  }
+
+  .desplazado {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .seccion-conocenos {
+    padding: 60px 0;
+  }
+  
+  .header-conocenos {
+    margin-bottom: 40px;
+  }
+  
+  .titulo-principal {
+    font-size: 1.8rem;
+  }
+
+  .titulo-seccion {
+    font-size: 1.8rem;
+  }
+
+  .servicio-item img,
+  .card-servicio img {
+    height: 140px;
+  }
+}
