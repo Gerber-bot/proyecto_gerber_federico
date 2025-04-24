@@ -18,10 +18,8 @@
     <!-- Columna 2: Información -->
     <div class="columna-pie d-flex flex-column">
       <h5 class="mb-3">Información</h5>
-      <a href="#" class="text-white text-decoration-none mb-1">Concesionarios</a>
       <a href="<?= base_url('informacion_legal') ?>" class="text-white text-decoration-none mb-1">Información Legal</a>
       <a href="#" class="text-white text-decoration-none mb-1">Trabajá con Nosotros</a>
-      <a href="#" class="text-white text-decoration-none mb-1">Buscar</a>
     </div>
   </div>
 </footer>

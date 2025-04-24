@@ -14,7 +14,7 @@
   <link href="assets/css/miestilo.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #dddddd;">
+<body>
 
   <?php include('partials/header.php'); ?>
   <?php include('partials/nav.php'); ?>

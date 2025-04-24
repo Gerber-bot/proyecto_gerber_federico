@@ -16,7 +16,7 @@
 
 </head>
 
-<body style="background-color: #dddddd;">
+<body>
 
   <!-- ENCABEZADO -->
   <?php include('partials/header.php'); ?>
@@ -95,7 +95,7 @@
             <img src="<?= base_url('assets/img/catalogo/vehiculo2.jpg') ?>" class="card-img-top" alt="Renault Kwid">
             <div class="card-body">
               <h3 class="card-title">Renault Kwid</h3>
-              <p class="card-text">2022 | 30,000 km | Manual</p>
+              <p class="card-text">Del año | 0 km | Manual</p>
               <div class="d-flex justify-content-between align-items-center">
                 <span class="fw-bold text-primary">$5,000</span>
                 <a href="<?= base_url('vehiculo') ?>" class="btn btn-sm btn-outline-primary">Ver detalles</a>
@@ -110,9 +110,9 @@
             <img src="<?= base_url('assets/img/catalogo/vehiculo3.jpg') ?>" class="card-img-top" alt="Chevrolet Onix">
             <div class="card-body">
               <h3 class="card-title">Chevrolet Onix</h3>
-              <p class="card-text">2021 | 50,000 km | Automático</p>
+              <p class="card-text">2001 | 500,000 km | Manual</p>
               <div class="d-flex justify-content-between align-items-center">
-                <span class="fw-bold text-primary">$18,000</span>
+                <span class="fw-bold text-primary">$1,000</span>
                 <a href="#" class="btn btn-sm btn-outline-primary">Ver detalles</a>
               </div>
             </div>

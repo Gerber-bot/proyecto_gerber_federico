@@ -16,7 +16,7 @@
 
 </head>
 
-<body style="background-color: #dddddd;">
+<body>
 
   <!-- ENCABEZADO -->
   <?php include('partials/header.php'); ?>
@@ -44,7 +44,7 @@
       <div class="carousel-item">
         <img src="<?= base_url('assets/img/carrusel/Slide2.jpg') ?>" class="d-block w-100" alt="Slide 2">
         <div class="carousel-caption d-none d-md-block">
-          <h2>VEHÍCULO 1</h2>
+          <h2>A TU GUSTO</h2>
           <button class="btn btn-secondary">DESCUBRILO</button>
         </div>
       </div>
@@ -52,7 +52,7 @@
       <div class="carousel-item">
         <img src="<?= base_url('assets/img/carrusel/Slide3.jpg') ?>" class="d-block w-100" alt="Slide 3">
         <div class="carousel-caption d-none d-md-block">
-          <h2>VEHÍCULO 2</h2>
+          <h2>O TAMBIEN</h2>
           <button class="btn btn-dark">VER MÁS</button>
         </div>
       </div>

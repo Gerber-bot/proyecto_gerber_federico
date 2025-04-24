@@ -16,7 +16,7 @@
 
 </head>
 
-<body style="background-color: #dddddd;">
+<body>
 
     <!-- ENCABEZADO -->
     <?php include('partials/header.php'); ?>
