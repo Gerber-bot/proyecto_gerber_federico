@@ -19,7 +19,7 @@
   <?php include('partials/header.php'); ?>
   <?php include('partials/nav.php'); ?>
 
-  <section class="experiencias py-5 bg-light">
+  <section class="experiencias py-5">
     <section class="text-center mb-5">
       <h1 class="display-4 fw-bold">Cuéntanos tu Experiencia</h1>
       <p class="lead">Valoramos tu opinión</p>

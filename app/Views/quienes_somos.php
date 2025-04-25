@@ -25,7 +25,7 @@
   <?php include('partials/nav.php'); ?>
 
   <!--  CONTENIDO DE LA PAGUINA-->
-  <section class="container my-5">
+  <section class="container my-5 bg-light">
     <div class="row align-items-center bg-white rounded shadow p-4">
       <div class="col-md-6">
         <img src="assets/img/quienes_somos.jpg" class="img-fluid rounded" alt="Quiénes somos Automotors">

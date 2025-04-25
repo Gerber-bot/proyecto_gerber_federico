@@ -14,3 +14,4 @@ $routes->get('informacion_legal', 'Home::informacion_legal');
 $routes->get('experiencias', 'Home::experiencias');
 $routes->get('miperfil', 'Home::miperfil');
 $routes->get('vehiculo', 'Home::vehiculo');
+$routes->get('trabajaConNosotros', 'Home::trabajaConNosotros');

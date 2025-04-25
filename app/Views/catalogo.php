@@ -83,7 +83,7 @@
               <p class="card-text">2023 | 45,000 km | Automático</p>
               <div class="d-flex justify-content-between align-items-center">
                 <span class="fw-bold text-primary">$15,000</span>
-                <a href="#" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                <a href="<?= base_url('vehiculo') ?>" class="btn btn-sm btn-outline-primary">Ver detalles</a>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
               <p class="card-text">2001 | 500,000 km | Manual</p>
               <div class="d-flex justify-content-between align-items-center">
                 <span class="fw-bold text-primary">$1,000</span>
-                <a href="#" class="btn btn-sm btn-outline-primary">Ver detalles</a>
+                <a href="<?= base_url('vehiculo') ?>" class="btn btn-sm btn-outline-primary">Ver detalles</a>
               </div>
             </div>
           </div>

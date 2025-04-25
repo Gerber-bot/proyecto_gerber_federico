@@ -2,7 +2,6 @@
 /*        VARIABLES       */
 /* ====================== */
 :root {
-  /* Paleta de grises oscuros */
   --gray-900: #0e0e0e;
   --gray-800: #1a1a1a;
   --gray-700: #2a2a2a;
@@ -12,24 +11,14 @@
   --gray-300: #999999;
   --gray-200: #bfbfbf;
   --gray-100: #e0e0e0;
-  
-  /* Colores principales */
+
   --primary-color: #ffc107;
   --primary-hover: #e0a800;
   --text-color: #333;
   --text-dark: #212529;
   --text-light: #fff;
-  --bg-light: #f8f9fa;
-  
-  /* Breakpoints */
-  --breakpoint-lg: 992px;
-  --breakpoint-md: 768px;
-  --breakpoint-sm: 576px;
-  
-  /* Transiciones */
-  --transition-fast: 0.2s ease;
+
   --transition-medium: 0.3s ease;
-  --transition-slow: 0.5s ease;
 }
 
 /* ====================== */
@@ -42,21 +31,19 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--gray-200);
+  background-color: var(--gray-100);
   color: var(--text-color);
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
 
-/* Tipografía uniforme */
 body, p, a, li, span, label, input, select, textarea, button {
   font-family: inherit;
   color: var(--text-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: inherit;
   font-weight: 600;
   color: var(--text-dark);
 }
@@ -70,7 +57,7 @@ a {
 /*     COMPONENTES        */
 /* ====================== */
 
-/* ----- Encabezado & Navbar ----- */
+/* Encabezado y navbar */
 .navbar-dark .navbar-nav .nav-link {
   position: relative;
   transition: var(--transition-medium);
@@ -108,18 +95,12 @@ a {
   transform: rotate(-5deg) scale(1.05);
 }
 
-.btn-outline-light:hover {
-  background-color: var(--primary-color);
-  color: var(--text-dark) !important;
-  border-color: var(--primary-color);
-}
-
 .dropdown-menu {
   z-index: 1051;
   position: absolute !important;
 }
 
-/* ----- Barra Principal ----- */
+/* Barra principal */
 .barra-principal {
   background-color: var(--gray-900);
   display: flex;
@@ -137,8 +118,8 @@ a {
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.85rem;
-  position: relative;
   padding: 10px 15px;
+  position: relative;
   z-index: 1;
   letter-spacing: 0.5px;
 }
@@ -163,15 +144,7 @@ a {
   width: 100%;
 }
 
-/* ----- Carrusel ----- */
-.carousel {
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 40px;
-  border: 1px solid var(--gray-700);
-  background-color: var(--gray-800);
-}
-
+/* Carrusel */
 .carousel-item img {
   max-height: 60vh;
   width: 100%;
@@ -205,32 +178,13 @@ a {
   color: var(--text-dark);
 }
 
-/* ----- Sección Marcas ----- */
+/* Marcas */
 .marcas {
   background-color: var(--gray-900);
   text-align: center;
   padding: 50px 20px;
   border-top: 2px solid var(--gray-700);
   border-bottom: 2px solid var(--gray-700);
-}
-
-.marcas h2 {
-  color: var(--gray-100);
-  font-size: 1.8rem;
-  margin-bottom: 40px;
-  padding: 10px 25px;
-  display: inline-block;
-  border: 2px solid var(--gray-600);
-  border-radius: 25px;
-}
-
-.contenedor-marcas {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .marca {
@@ -243,10 +197,8 @@ a {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.marca:hover {
-  transform: translateY(-5px);
-  border-color: var(--gray-400);
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+.marcas h2 {
+  color: #e0e0e0;
 }
 
 .marca img {
@@ -260,41 +212,17 @@ a {
   transition: var(--transition-medium);
 }
 
+.marca:hover {
+  transform: translateY(-5px);
+  border-color: var(--gray-400);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
 .marca:hover img {
   border-color: var(--primary-color);
 }
 
-.marca p {
-  color: var(--gray-200);
-  margin-top: 10px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* ----- Sección Conócenos ----- */
-.seccion-conocenos {
-  padding: 80px 0;
-  background-color: var(--bg-light);
-}
-
-.header-conocenos {
-  margin-bottom: 60px;
-}
-
-.titulo-principal {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 15px;
-}
-
-.subtitulo {
-  font-size: 1.3rem;
-  color: var(--gray-500);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
+/* Conócenos */
 .item-conocenos {
   display: flex;
   align-items: center;
@@ -309,7 +237,8 @@ a {
   flex-direction: row-reverse;
 }
 
-.imagen-conocenos {
+.imagen-conocenos,
+.texto-conocenos {
   flex: 1;
 }
 
@@ -321,15 +250,7 @@ a {
 }
 
 .texto-conocenos {
-  flex: 1;
   padding: 50px;
-}
-
-.texto-conocenos h2 {
-  font-size: 2rem;
-  color: var(--text-dark);
-  margin-bottom: 20px;
-  font-weight: 600;
 }
 
 .separador {
@@ -345,36 +266,7 @@ a {
   line-height: 1.8;
 }
 
-/* ----- Secciones generales ----- */
-.contenido-catalogo,
-.contenido-servicios {
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 15px;
-}
-
-.titulo-seccion {
-  font-size: 2.2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 40px;
-  color: var(--text-color);
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.titulo-seccion::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: var(--gray-500);
-}
-
-/* ----- Servicios ----- */
+/* Servicios */
 .recuadro-servicios {
   padding: 30px;
   background: var(--gray-900);
@@ -386,8 +278,6 @@ a {
 
 .card-servicio {
   background-color: transparent;
-  color: var(--text-light);
-  padding: 0;
   text-align: center;
   border: none;
   transition: var(--transition-medium);
@@ -417,15 +307,11 @@ a {
   transition: var(--transition-medium);
 }
 
-.card-servicio:hover .img-box img {
-  transform: scale(1.05);
-}
-
 .card-servicio h3 {
-  margin-top: 20px;
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--text-light);
+  margin-top: 20px;
   transition: var(--transition-medium);
 }
 
@@ -439,48 +325,7 @@ a {
   color: var(--primary-color);
 }
 
-/* ----- Experiencias Clientes ----- */
-.experiencias {
-  padding: 80px 0;
-}
-
-.experiencias h2 {
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-.experiencia-card {
-  transition: var(--transition-medium);
-}
-
-.experiencia-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.experiencia-card img {
-  height: 250px;
-  object-fit: cover;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
-
-.experiencia-card .card-body {
-  background-color: #fff;
-}
-
-.experiencia-card .card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.experiencia-card .card-text {
-  font-size: 0.9rem;
-  color: var(--gray-500);
-}
-
-/* ----- Pie de Página ----- */
+/* Footer */
 .pie-pagina {
   background-color: var(--gray-900);
   color: var(--text-light);
@@ -517,6 +362,7 @@ a {
 }
 
 .columna-pie a {
+  color: var(--text-light);
   font-size: 0.9rem;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -526,74 +372,6 @@ a {
 .columna-pie a:hover {
   color: var(--primary-color) !important;
   transform: translateX(5px);
-}
-
-/* ----- Mi Perfil ----- */
-.perfil-section {
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: var(--transition-medium);
-}
-
-.perfil-section:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.card-header {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.card-body ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.card-body ul li {
-  padding: 5px 0;
-  border-bottom: 1px solid var(--gray-200);
-}
-
-/* ----- Vehículos ----- */
-.vehiculo-img {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: var(--transition-medium);
-}
-
-.vehiculo-img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* ----- Catálogo ----- */
-.card {
-  transition: var(--transition-medium);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-/* ====================== */
-/*        UTILIDADES      */
-/* ====================== */
-#conocenos {
-  scroll-margin-top: 100px;
-}
-
-.shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-}
-
-.shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-}
-
-.shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
 
 /* ====================== */
@@ -705,3 +483,39 @@ a {
     font-size: 1rem;
   }
 }
+
+.seccion-alternada {
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.seccion-alternada:nth-child(odd) .imagen-vehiculo {
+  order: 1;
+}
+
+.seccion-alternada:nth-child(odd) .texto-vehiculo {
+  order: 2;
+}
+
+.seccion-alternada:nth-child(even) .imagen-vehiculo {
+  order: 2;
+}
+
+.seccion-alternada:nth-child(even) .texto-vehiculo {
+  order: 1;
+}
+
+.seccion-centrada {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 800px;
+}
+
+.img-vehiculo {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+}    
+

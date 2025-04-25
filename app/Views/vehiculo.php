@@ -66,136 +66,142 @@
             </div>
         </div>
 
-        <!-- Diseño del Motor -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Diseño del Motor</h3>
-                <img src="assets/img/vehiculo/kwid/kwid_motor.jpg" alt="Diseño del Motor Renault Kwid"
-                    class="img-fluid rounded shadow-lg">
-                <p class="mt-3">El motor 1.0L 12V del Renault Kwid ICE está diseñado para ofrecer una mayor eficiencia y
-                    rendimiento, combinado con un bajo consumo de combustible. Este motor ofrece 66 CV, ideal para el
-                    uso urbano.</p>
-            </div>
+        <div class="col-md-6 imagen-vehiculo">
+            <img src="assets/img/vehiculo/kwid/kwid_interior.jpg" alt="Interior Renault Kwid"
+                class="img-fluid img-vehiculo">
         </div>
+    </div>
 
+    <!-- Diseño del Motor (centrado) -->
+    <div class="seccion-centrada">
+        <h3 class="h4 mb-4">Diseño del Motor</h3>
+        <img src="assets/img/vehiculo/kwid/kwid_motor.jpg" alt="Diseño del Motor Renault Kwid"
+            class="img-fluid img-vehiculo mb-3">
+        <p>El motor 1.0L 12V del Renault Kwid ICE está diseñado para ofrecer una mayor eficiencia y rendimiento,
+            combinado con un bajo consumo de combustible. Este motor ofrece 66 CV, ideal para el uso urbano.</p>
+    </div>
 
-        <!-- Diseño Exterior -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Diseño Exterior</h3>
-                <img src="assets/img/vehiculo/kwid/kwid_exterior.jpg" alt="Diseño Exterior Renault Kwid"
-                    class="img-fluid rounded shadow-lg">
-                <p class="mt-3">El diseño exterior del Renault Kwid ICE destaca por sus líneas modernas y compactas,
-                    ideales para la conducción urbana. La parrilla frontal, los faros LED y los detalles cromados le
-                    otorgan un aspecto robusto y dinámico.</p>
-            </div>
+    <!-- Diseño Exterior (alternado) -->
+    <div class="row seccion-alternada align-items-center">
+        <div class="col-md-6 imagen-vehiculo">
+            <img src="assets/img/vehiculo/kwid/kwid_exterior.jpg" alt="Diseño Exterior Renault Kwid"
+                class="img-fluid img-vehiculo">
         </div>
+        <div class="col-md-6 texto-vehiculo">
+            <h3 class="h4 mb-4">Diseño Exterior</h3>
+            <p>El diseño exterior del Renault Kwid ICE destaca por sus líneas modernas y compactas, ideales para la
+                conducción urbana. La parrilla frontal, los faros LED y los detalles cromados le otorgan un aspecto
+                robusto y dinámico.</p>
+        </div>
+    </div>
 
-        <!-- Diseño Interior -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Diseño Interior</h3>
+    <!-- Diseño Interior (centrado) -->
+    <div class="seccion-centrada">
+        <h3 class="h4 mb-4">Diseño Interior</h3>
+        <div class="row">
+            <div class="col-md-6 mb-3">
                 <img src="assets/img/vehiculo/kwid/kwid_interior.jpg" alt="Diseño Interior Renault Kwid"
-                    class="img-fluid rounded shadow-lg">
-                <img src="assets/img/vehiculo/kwid/kwid_interior2.jpg" alt="Diseño Interior Renault Kwid2"
-                    class="img-fluid rounded shadow-lg">
-                <p class="mt-3">El interior del Renault Kwid ICE está pensado para brindar comodidad y practicidad. Con
-                    acabados modernos, un tablero digital, asientos ergonómicos y amplio espacio para los ocupantes,
-                    este auto proporciona una experiencia de manejo placentera.</p>
+                    class="img-fluid img-vehiculo">
+            </div>
+            <div class="col-md-6">
+                <img src="assets/img/vehiculo/kwid/kwid_interior2.jpg" alt="Diseño Interior Renault Kwid"
+                    class="img-fluid img-vehiculo">
             </div>
         </div>
+        <p class="mt-3">El interior del Renault Kwid ICE está pensado para brindar comodidad y practicidad. Con acabados
+            modernos, un tablero digital, asientos ergonómicos y amplio espacio para los ocupantes, este auto
+            proporciona una experiencia de manejo placentera.</p>
+    </div>
 
-        <!-- Tamaño del Baúl -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Tamaño del Baúl</h3>
-                <img src="assets/img/vehiculo/kwid/kwid_baul.jpg" alt="Tamaño del Baúl Renault Kwid"
-                    class="img-fluid rounded shadow-lg">
-                <p class="mt-3">El Renault Kwid ICE ofrece un baúl con capacidad de hasta 290 litros, lo que lo
-                    convierte en uno de los autos más prácticos en su segmento, permitiendo transportar equipaje o carga
-                    de forma cómoda.</p>
-            </div>
+    <!-- Tamaño del Baúl (alternado) -->
+    <div class="row seccion-alternada align-items-center">
+        <div class="col-md-6 texto-vehiculo">
+            <h3 class="h4 mb-4">Tamaño del Baúl</h3>
+            <p>El Renault Kwid ICE ofrece un baúl con capacidad de hasta 290 litros, lo que lo convierte en uno de los
+                autos más prácticos en su segmento, permitiendo transportar equipaje o carga de forma cómoda.</p>
         </div>
+        <div class="col-md-6 imagen-vehiculo">
+            <img src="assets/img/vehiculo/kwid/kwid_baul.jpg" alt="Tamaño del Baúl Renault Kwid"
+                class="img-fluid img-vehiculo">
+        </div>
+    </div>
 
-        <!-- Neumáticos -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Neumáticos</h3>
-                <img src="assets/img/vehiculo\kwid/kwid_neumaticos.jpg" alt="Neumáticos Renault Kwid"
-                    class="img-fluid rounded shadow-lg">
-                <p class="mt-3">El Renault Kwid ICE está equipado con neumáticos de 175/65 R14, diseñados para ofrecer
-                    un excelente desempeño tanto en ciudad como en carretera, asegurando estabilidad y confort en todo
-                    momento.</p>
-            </div>
-        </div>
+    <!-- Neumáticos (centrado) -->
+    <div class="seccion-centrada">
+        <h3 class="h4 mb-4">Neumáticos</h3>
+        <img src="assets/img/vehiculo/kwid/kwid_neumaticos.jpg" alt="Neumáticos Renault Kwid"
+            class="img-fluid img-vehiculo mb-3">
+        <p>El Renault Kwid ICE está equipado con neumáticos de 175/65 R14, diseñados para ofrecer un excelente desempeño
+            tanto en ciudad como en carretera, asegurando estabilidad y confort en todo momento.</p>
+    </div>
 
-        <!-- Accesorios -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Accesorios</h3>
-                <ul class="list-group">
-                    <li class="list-group-item"><strong>Cámaras de retroceso</strong> - $15,000</li>
-                    <li class="list-group-item"><strong>Kit de tapizados premium</strong> - $12,000</li>
-                    <li class="list-group-item"><strong>Alfombrillas personalizadas</strong> - $3,500</li>
-                    <li class="list-group-item"><strong>Rines de aleación</strong> - $25,000</li>
-                    <li class="list-group-item"><strong>Faros antiniebla</strong> - $7,000</li>
-                </ul>
-            </div>
+    <!-- Accesorios -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="h4">Accesorios</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Cámaras de retroceso</strong> - $15,000</li>
+                <li class="list-group-item"><strong>Kit de tapizados premium</strong> - $12,000</li>
+                <li class="list-group-item"><strong>Alfombrillas personalizadas</strong> - $3,500</li>
+                <li class="list-group-item"><strong>Rines de aleación</strong> - $25,000</li>
+                <li class="list-group-item"><strong>Faros antiniebla</strong> - $7,000</li>
+            </ul>
         </div>
+    </div>
 
-        <!-- Precios según accesorios -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Precios según Accesorios</h3>
-                <p>Al seleccionar diferentes accesorios para personalizar tu Renault Kwid ICE, los precios pueden
-                    variar. A continuación se presentan los precios aproximados de los accesorios más populares:</p>
-                <ul class="list-group">
-                    <li class="list-group-item"><strong>Precio Base:</strong> $1,250,000</li>
-                    <li class="list-group-item"><strong>Con Accesorios (al menos 3):</strong> Precio</li>
-                </ul>
-            </div>
+    <!-- Precios según accesorios -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="h4">Precios según Accesorios</h3>
+            <p>Al seleccionar diferentes accesorios para personalizar tu Renault Kwid ICE, los precios pueden
+                variar. A continuación se presentan los precios aproximados de los accesorios más populares:</p>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Precio Base:</strong> $1,250,000</li>
+                <li class="list-group-item"><strong>Con Accesorios (al menos 3):</strong> Precio</li>
+            </ul>
         </div>
+    </div>
 
-        <!-- Modelos de Kwid y Diferencias -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="h4">Modelos de Renault Kwid</h3>
-                <p>A continuación, te mostramos los diferentes modelos disponibles del Renault Kwid, sus diferencias y
-                    precios.</p>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Modelo</th>
-                                <th>Motor</th>
-                                <th>Potencia</th>
-                                <th>Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Kwid ICE</td>
-                                <td>1.0L 12V</td>
-                                <td>66 CV</td>
-                                <td>$1</td>
-                            </tr>
-                            <tr>
-                                <td>Kwid Outsider</td>
-                                <td>1.0L 12V</td>
-                                <td>66 CV</td>
-                                <td>$1</td>
-                            </tr>
-                            <tr>
-                                <td>Kwid Intense</td>
-                                <td>1.0L 12V</td>
-                                <td>66 CV</td>
-                                <td>$1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <!-- Modelos de Kwid y Diferencias -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h3 class="h4">Modelos de Renault Kwid</h3>
+            <p>A continuación, te mostramos los diferentes modelos disponibles del Renault Kwid, sus diferencias y
+                precios.</p>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Motor</th>
+                            <th>Potencia</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kwid ICE</td>
+                            <td>1.0L 12V</td>
+                            <td>66 CV</td>
+                            <td>$1</td>
+                        </tr>
+                        <tr>
+                            <td>Kwid Outsider</td>
+                            <td>1.0L 12V</td>
+                            <td>66 CV</td>
+                            <td>$1</td>
+                        </tr>
+                        <tr>
+                            <td>Kwid Intense</td>
+                            <td>1.0L 12V</td>
+                            <td>66 CV</td>
+                            <td>$1</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
     </div>
 
 

@@ -42,4 +42,8 @@ class Home extends BaseController {
     public function vehiculo() {
         return view('vehiculo.php');
     }
+
+    public function trabajaConNosotros() {
+        return view('trabajaConNosotros.php');
+    }
 }
