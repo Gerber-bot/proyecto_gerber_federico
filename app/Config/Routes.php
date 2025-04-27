@@ -15,3 +15,4 @@ $routes->get('experiencias', 'Home::experiencias');
 $routes->get('miperfil', 'Home::miperfil');
 $routes->get('vehiculo', 'Home::vehiculo');
 $routes->get('trabajaConNosotros', 'Home::trabajaConNosotros');
+$routes->get('compraYVenta', 'Home::compraYVenta');

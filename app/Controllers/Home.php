@@ -46,4 +46,8 @@ class Home extends BaseController {
     public function trabajaConNosotros() {
         return view('trabajaConNosotros.php');
     }
+
+    public function compraYVenta(){
+        return view('compraYVenta.php');
+    }
 }

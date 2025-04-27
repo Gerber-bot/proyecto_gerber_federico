@@ -35,7 +35,7 @@
             </div>
         </section>
 
-        <!-- Sección de talento buscado -->
+        <!-- Sección talento -->
         <section class="talento-buscado py-5 bg-light">
             <div class="container">
                 <div class="text-center mb-5">
@@ -241,7 +241,6 @@
         // Manejo del formulario
         document.getElementById('cvForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Aquí iría la lógica para enviar el formulario
             alert('¡Gracias por tu interés en Automotors! Hemos recibido tu solicitud y nos pondremos en contacto contigo pronto.');
             this.reset();
         });

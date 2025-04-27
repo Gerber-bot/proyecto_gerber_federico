@@ -4,5 +4,5 @@
   <a href="<?= base_url('servicios') ?>">SERVICIOS</a>
   <a href="<?= base_url('experiencias') ?>">EXPERIENCIA DE LOS CLIENTES</a>
   <a href="<?= base_url('informacion_corporativa') ?>">INFORMACIÓN CORPORATIVA</a>
-  <a href="#">OPCIONES DE COMPRA/VENTA</a>
+  <a href="<?= base_url('compraYVenta') ?>">OPCIONES DE COMPRA/VENTA</a>
 </nav>
