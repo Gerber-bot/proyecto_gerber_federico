@@ -1,53 +1,52 @@
 <?php
+
 namespace App\Controllers;
 
-class Home extends BaseController {
-    
-    public function principal() {
-        return view('principal.html');
+class Home extends BaseController
+{
+    public function index(): string
+    {
+        return view('principal', ['title' => 'Automotors - Inicio']);
     }
 
-    public function index(){
-        return view('plantilla.php');
+    public function informacion_corporativa(): string
+    {
+        return view('empresa/informacion_corporativa', ['title' => 'Información Corporativa']);
     }
-
-    public function catalogo() {
-        return view('catalogo.php');
+    public function informacion_legal(): string
+    {
+        return view('empresa/informacion_legal', ['title' => 'Información Legal']);
     }
-
-    public function servicios() {
-        return view('servicios.php');
+    public function quienes_somos(): string
+    {
+        return view('empresa/quienes_somos', ['title' => 'Conocenos']);
     }
-
-    public function quienes_somos() {
-        return view('quienes_somos.php');
+    public function trabaja_con_nosotros(): string
+    {
+        return view('empresa/trabaja_con_nosotros', ['title' => 'Trabaja con Nosotros']);
     }
-
-    public function informacion_corporativa() {
-        return view('informacion_corporativa.php');
+    public function compra_venta(): string
+    {
+        return view('servicios/compra_venta', ['title' => 'Opciones de compra/venta']);
     }
-
-    public function informacion_legal() {
-        return view('informacion_legal.php');
+    public function servicios(): string
+    {
+        return view('servicios/servicios', ['title' => 'Servicios']);
     }
-
-    public function experiencias() {
-        return view('experiencias.php');
+    public function miperfil(): string
+    {
+        return view('usuario/miperfil', ['title' => 'Mi Perfil']);
     }
-
-    public function miperfil() {
-        return view('miperfil.php');
+    public function catalogo(): string
+    {
+        return view('catalogo/catalogo', ['title' => 'Catálogo']);
     }
-
-    public function vehiculo() {
-        return view('vehiculo.php');
+    public function vehiculo(): string
+    {
+        return view('catalogo/vehiculo', ['title' => 'Vehículo']);
     }
-
-    public function trabajaConNosotros() {
-        return view('trabajaConNosotros.php');
-    }
-
-    public function compraYVenta(){
-        return view('compraYVenta.php');
+    public function experiencias(): string
+    {
+        return view('clientes/experiencias', ['title' => 'Experiencias']);
     }
 }
