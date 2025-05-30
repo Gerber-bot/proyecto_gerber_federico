@@ -5,7 +5,6 @@ use CodeIgniter\Model;
 
 class AgendaModel extends Model
 {
-    // Nombre de la tabla en la base de datos (debe coincidir con phpMyAdmin)
     protected $table = 'agenda_servicio';
 
     // Clave primaria de la tabla
@@ -19,7 +18,8 @@ class AgendaModel extends Model
         'servicio',
         'comentario',
         'fecha',
-        'fecha_registro'
+        'fecha_registro',
+        'estado' 
     ];
 
     // No usar timestamps automáticos de CI4 (created_at, updated_at)

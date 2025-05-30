@@ -4,7 +4,7 @@
 
 <div class="container my-5">
     <h2>Agregar Nuevo Producto al Catálogo</h2>
-    
+
     <?php if (session('errors')): ?>
         <div class="alert alert-danger">
             <?php foreach (session('errors') as $error): ?>
@@ -12,7 +12,7 @@
             <?php endforeach ?>
         </div>
     <?php endif ?>
-    
+
     <form action="<?= base_url('catalogo/guardar') ?>" method="post" enctype="multipart/form-data">
         <!-- Información básica -->
         <div class="card mb-4">
@@ -24,6 +24,29 @@
                     <div class="col-md-6">
                         <label class="form-label">Nombre del vehículo*</label>
                         <input type="text" name="nombre" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Marca*</label>
+                        <select name="marca" class="form-select" required>
+                            <option value="">Seleccione una marca</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <!-- Agrega aquí cualquier otra marca que necesites -->
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Año*</label>
+                        <input type="number" name="anio" class="form-control" min="1900" max="2100" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Kilómetros*</label>
+                        <input type="number" name="kilometros" class="form-control" min="0" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Precio base*</label>
@@ -85,7 +108,8 @@
                 <div class="row g-3">
                     <div class="col-md-4">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="direccion_asistida" id="direccion_asistida">
+                            <input class="form-check-input" type="checkbox" name="direccion_asistida"
+                                id="direccion_asistida">
                             <label class="form-check-label" for="direccion_asistida">Dirección asistida</label>
                         </div>
                         <div class="form-check form-switch">
@@ -95,7 +119,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="airbags_frontales" id="airbags_frontales">
+                            <input class="form-check-input" type="checkbox" name="airbags_frontales"
+                                id="airbags_frontales">
                             <label class="form-check-label" for="airbags_frontales">Airbags frontales</label>
                         </div>
                         <div class="form-check form-switch">
@@ -133,7 +158,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tamaño del baúl</label>
-                    <input type="text" name="tamano_baul" class="form-control">
+                    <textarea name="tamano_baul" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Información del motor</label>
@@ -145,7 +170,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Accesorios (separados por comas)</label>
-                    <textarea name="accesorios" class="form-control" rows="3" placeholder="Ej: Cámaras de retroceso, Kit de tapizados premium, Alfombrillas personalizadas"></textarea>
+                    <textarea name="accesorios" class="form-control" rows="3"
+                        placeholder="Ej: Cámaras de retroceso, Kit de tapizados premium, Alfombrillas personalizadas"></textarea>
                 </div>
             </div>
         </div>

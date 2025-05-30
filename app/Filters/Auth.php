@@ -10,13 +10,28 @@ class Auth implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->get('isLoggedIn')) {
-            return redirect()->to('/');
+        $session = session();
+
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to('/login')->with('error', 'Debes iniciar sesión');
         }
+
+        if ($arguments && isset($arguments[0])) {
+            $identificador = $session->get('identificador');
+            if ($identificador != $arguments[0]) {
+                $session->setFlashdata('error', 'No tienes permisos de administrador');
+                return redirect()->to('/');
+            }
+        }
+        // Si pasa, continúa la ejecución normal
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // Nada aquí
+        // No es necesario implementar nada aquí
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

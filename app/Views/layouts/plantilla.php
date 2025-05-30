@@ -12,7 +12,9 @@
 
   <!-- CSS personalizado -->
   <link href="<?= base_url('assets/css/miestilo.css') ?>" rel="stylesheet">
-
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
   <?= $this->renderSection('head') ?>
 </head>
 
@@ -28,8 +30,17 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
+  <?= $this->section('scripts') ?>
+  <script>
+    // Activar tooltips de Bootstrap
+    document.addEventListener('DOMContentLoaded', function () {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    });
+  </script>
+  <?= $this->endSection() ?>
 
   <?= $this->renderSection('scripts') ?>
 </body>

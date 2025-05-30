@@ -21,7 +21,8 @@ class Agendar extends Controller
             'servicio' => $request->getPost('servicio'),
             'comentario' => $request->getPost('comentario'),
             'fecha' => $request->getPost('fecha'),
-            'fecha_registro' => date('Y-m-d H:i:s')
+            'fecha_registro' => date('Y-m-d H:i:s'),
+            'estado' => 'pendiente'
         ];
 
         log_message('debug', 'Datos recibidos: ' . print_r($data, true));
@@ -33,4 +34,16 @@ class Agendar extends Controller
             return $this->response->setStatusCode(500)->setBody('Error al guardar');
         }
     }
+
+    public function cambiarEstado($id, $estado)
+    {
+        $model = new \App\Models\AgendaModel();
+
+        if (in_array($estado, ['pendiente', 'atendido', 'cancelado'])) {
+            $model->update($id, ['estado' => $estado]);
+        }
+
+        return redirect()->to('/usuarios')->with('msg', 'Estado del turno actualizado');
+    }
+
 }

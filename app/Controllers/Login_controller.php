@@ -8,7 +8,7 @@ class Login_controller extends BaseController
     public function index()
     {
         helper(['form', 'url']);
-        return view('login'); // Asegurate de tener una vista llamada 'login.php'
+        return view('layouts/modals/login'); // Ahora apunta a la ubicación correcta
     }
 
     public function auth()
@@ -40,7 +40,8 @@ class Login_controller extends BaseController
                     'email' => $data['email'],
                     'usuario' => $data['usuario'],
                     'perfil_id' => $data['perfil_id'],
-                    'logged_in' => true
+                    'identificador' => $data['perfil_id'],
+                    'logged_in' => true 
                 ];
 
                 $session->set($ses_data); // Guardamos los datos en sesión

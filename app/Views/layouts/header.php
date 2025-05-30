@@ -38,25 +38,35 @@
               </button>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
                 <?php if (session()->get('isLoggedIn')): ?>
-                    <?php if (session()->get('identificador') == 1): ?>
-                        <li>
-                            <a class="dropdown-item" href="<?= base_url('panel') ?>">Panel de Administración</a>
-                        </li>
-                    <?php endif; ?>
+                  <?php if (session()->get('identificador') == 1): ?>
                     <li>
-                        <a class="dropdown-item" href="<?= base_url('usuario/miperfil') ?>">Mi Perfil</a>
+                      <a class="dropdown-item" href="<?= base_url('panel') ?>">Panel de Administración</a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" href="<?= base_url('logout') ?>">Cerrar Sesión</a>
-                    </li>
+                  <?php endif; ?>
+                  <li>
+                    <a class="dropdown-item" href="<?= base_url('usuario/miperfil') ?>">Mi Perfil</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="<?= base_url('logout') ?>">Cerrar Sesión</a>
+                  </li>
                 <?php else: ?>
-                    <li>
-                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar
-                            Sesión</a>
-                    </li>
+                  <li>
+                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar
+                      Sesión</a>
+                  </li>
                 <?php endif; ?>
               </ul>
             </div>
+            <li class="nav-item">
+              <a class="nav-link text-white"
+                href="<?= session()->get('isLoggedIn') ? base_url('compras') : 'javascript:void(0)' ?>"
+                <?= !session()->get('isLoggedIn') ? 'data-bs-toggle="tooltip" data-bs-placement="bottom" title="Debes iniciar sesión"' : '' ?>>
+                <i class="bi bi-cart"></i> Compras
+                <?php if (session()->get('isLoggedIn') && $carrito_count = count(session()->get('carrito') ?? [])): ?>
+                  <span class="badge bg-danger"><?= $carrito_count ?></span>
+                <?php endif; ?>
+              </a>
+            </li>
           </div>
         </div>
       </div>

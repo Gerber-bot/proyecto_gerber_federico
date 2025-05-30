@@ -9,6 +9,7 @@ class ProductoModel extends Model
     protected $table = 'productos';
     protected $primaryKey = 'id';
     protected $allowedFields = [
+        'marca',
         'kilometros',
         'anio',
         'nombre',
@@ -32,12 +33,14 @@ class ProductoModel extends Model
         'neumaticos',
         'accesorios',
         'precio_base',
+        'stock',
         'img_principal',
         'img_exterior',
         'img_interior1',
         'img_interior2',
         'img_baul',
         'img_motor',
-        'img_neumaticos'
+        'img_neumaticos',
+        'estado',
     ];
 }

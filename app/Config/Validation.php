@@ -34,11 +34,28 @@ class Validation extends BaseConfig
      * @var array<string, string>
      */
     public array $templates = [
-        'list'   => 'CodeIgniter\Validation\Views\list',
+        'list' => 'CodeIgniter\Validation\Views\list',
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+    public function fecha_futura(?string $str, string &$error = null): bool
+    {
+        if (empty($str)) {
+            return true;
+        }
+
+        $fechaInput = strtotime($str);
+        $fechaHoy = strtotime(date('Y-m-d'));
+
+        if ($fechaInput < $fechaHoy) {
+            $error = 'La fecha debe ser igual o posterior a hoy';
+            return false;
+        }
+
+        return true;
+    }
+
 }
