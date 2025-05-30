@@ -14,13 +14,8 @@ $routes->get('empresa/quienes_somos', 'Home::quienes_somos');
 $routes->get('empresa/trabaja_con_nosotros', 'Home::trabaja_con_nosotros');
 $routes->get('servicios/compra_venta', 'Home::compra_venta');
 $routes->get('servicios/servicios', 'Home::servicios');
-<<<<<<< HEAD
 $routes->get('usuario/miperfil', 'UsuarioController::miperfil');
 $routes->get('catalogo/catalogo', 'CatalogoController::catalogo');
-=======
-$routes->get('usuario/miperfil', 'Home::miperfil');
-$routes->get('catalogo/catalogo', 'Home::catalogo');
->>>>>>> adb5ca7151cc3a9f97342981057be4a997df9fba
 $routes->get('catalogo/vehiculo', 'Home::vehiculo');
 $routes->get('clientes/experiencias', 'Home::experiencias');
 
@@ -31,7 +26,6 @@ $routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
 
 $routes->get('panel', 'panel_controller::index');
 
-<<<<<<< HEAD
 
 $routes->get('usuarios', 'UsuarioController::index');
 $routes->get('usuarios/agregar', 'UsuarioController::agregar');
@@ -46,12 +40,18 @@ $routes->get('catalogo/agregar', 'CatalogoController::agregar');
 $routes->post('catalogo/guardar', 'CatalogoController::guardar');
 $routes->get('catalogo/deshabilitar/(:num)', 'CatalogoController::deshabilitar/$1');
 $routes->get('catalogo/habilitar/(:num)', 'CatalogoController::habilitar/$1');
+$routes->post('agendar/guardar', 'Agendar::guardar');
+$routes->post('comentarios/guardar', 'Comentarios::guardar');
+$routes->get('comentarios/mostrarImagen/(:any)', 'Comentarios::mostrarImagen/$1');
+$routes->get('comentarios/listar', 'Comentarios::listar');
 
-=======
-$routes->get('/usuarios', 'UsuarioController::index');
-$routes->get('/usuarios/agregar', 'UsuarioController::agregar');
-$routes->post('/usuarios/guardar', 'UsuarioController::guardar');
-$routes->get('/usuarios/editar/(:num)', 'UsuarioController::editar/$1');
-$routes->post('/usuarios/actualizar/(:num)', 'UsuarioController::actualizar/$1');
-$routes->get('/usuarios/eliminar/(:num)', 'UsuarioController::eliminar/$1');
->>>>>>> adb5ca7151cc3a9f97342981057be4a997df9fba
+// Catálogo principal
+$routes->get('catalogo', 'CatalogoController::catalogo');
+$routes->get('catalogo/vehiculo/(:num)', 'CatalogoController::vehiculo/$1');
+
+// Rutas protegidas para admin
+$routes->group('', ['filter' => 'auth:identificador,1'], function($routes) {
+    $routes->get('catalogo/agregar', 'CatalogoController::agregar');
+    $routes->post('catalogo/guardar', 'CatalogoController::guardar');
+
+});
