@@ -41,9 +41,6 @@ $routes->post('catalogo/guardar', 'CatalogoController::guardar');
 $routes->get('catalogo/deshabilitar/(:num)', 'CatalogoController::deshabilitar/$1');
 $routes->get('catalogo/habilitar/(:num)', 'CatalogoController::habilitar/$1');
 $routes->post('agendar/guardar', 'Agendar::guardar');
-$routes->post('comentarios/guardar', 'Comentarios::guardar');
-$routes->get('comentarios/mostrarImagen/(:any)', 'Comentarios::mostrarImagen/$1');
-$routes->get('comentarios/listar', 'Comentarios::listar');
 
 // Catálogo principal
 $routes->get('catalogo', 'CatalogoController::catalogo');
@@ -53,5 +50,3 @@ $routes->get('catalogo/vehiculo/(:num)', 'CatalogoController::vehiculo/$1');
 $routes->group('', ['filter' => 'auth:identificador,1'], function($routes) {
     $routes->get('catalogo/agregar', 'CatalogoController::agregar');
     $routes->post('catalogo/guardar', 'CatalogoController::guardar');
-
-});
