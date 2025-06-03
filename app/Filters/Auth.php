@@ -30,8 +30,4 @@ class Auth implements FilterInterface
     {
         // No es necesario implementar nada aquí
     }
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
