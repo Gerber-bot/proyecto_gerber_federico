@@ -1,7 +1,10 @@
 <?= $this->extend('layouts/plantilla') ?>
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 <?= $this->section('content') ?>
 
   <!-- CARRUSEL DE IMÁGENES -->

@@ -1,0 +1,665 @@
+DEBUG - 2025-05-30 18:31:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:32:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:32:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:32:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:32:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:33:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:48:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:49:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:51:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:51:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:51:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:51:17 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => pipo
+            [comentario] => asdasdasdasd
+            [imagen] => 1748631077_378bedd9631de6e8671a.png
+        )
+
+)
+
+DEBUG - 2025-05-30 18:51:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:51:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:54:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-30 18:54:25 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "layout.php"
+[Method: GET, Route: clientes/experiencias]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(212): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout.php')
+ 2 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render('layout', [], true)
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('clientes/experiencias', [], true)
+ 4 APPPATH\Controllers\Home.php(50): view('clientes/experiencias', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->experiencias()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-30 18:56:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:57:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:57:14 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => pipo
+            [comentario] => zapatilla caramelo celular
+            [imagen] => 1748631434_1e08adb4f4290f260fe4.png
+        )
+
+)
+
+DEBUG - 2025-05-30 18:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:57:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:57:28 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => pipo
+            [comentario] => dasdas
+            [imagen] => 
+        )
+
+)
+
+DEBUG - 2025-05-30 18:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:58:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:58:18 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => pipo
+            [comentario] => dasdasd
+            [imagen] => 
+        )
+
+)
+
+DEBUG - 2025-05-30 18:58:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:58:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:58:42 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => pipo
+            [comentario] => asdadasda
+            [imagen] => 
+        )
+
+)
+
+DEBUG - 2025-05-30 18:58:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:58:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:58:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:58:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:59:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 18:59:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:00:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:00:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:00:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:00:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:00:17 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasdasda
+            [imagen] => 
+        )
+
+)
+
+DEBUG - 2025-05-30 19:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:00:37 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasdasdadas
+            [imagen] => 
+        )
+
+)
+
+DEBUG - 2025-05-30 19:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:02:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:04:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:04:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:04:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:04:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:04:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:11:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:11:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:11:19 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => ASDAS
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:11:19
+        )
+
+)
+
+DEBUG - 2025-05-30 19:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:13:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:13:57 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => 2 megas re pco nae
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:13:57
+        )
+
+)
+
+DEBUG - 2025-05-30 19:14:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:14:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:14:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:14:14 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasdasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:14:14
+        )
+
+)
+
+DEBUG - 2025-05-30 19:14:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:14:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:14:42 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasdasd
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:14:42
+        )
+
+)
+
+DEBUG - 2025-05-30 19:14:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:16:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:16:37 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:16:37
+        )
+
+)
+
+DEBUG - 2025-05-30 19:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:18:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:18:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:18:38 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => asdasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:18:38
+        )
+
+)
+
+DEBUG - 2025-05-30 19:18:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:19:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:19:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:19:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:23:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:23:40 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => asdasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:23:40
+        )
+
+)
+
+DEBUG - 2025-05-30 19:26:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:27:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:27:08 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => asdasdasdasdasdasdas
+            [imagen] => 1748633228_3bed2ebd06300e04156f.png
+            [fecha_subida] => 2025-05-30 19:27:08
+        )
+
+)
+
+DEBUG - 2025-05-30 19:27:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:27:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:30:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:31:00 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => jjjjjjjjjj
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:31:00
+        )
+
+)
+
+DEBUG - 2025-05-30 19:31:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:31:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:31:36 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => re piola!
+            [imagen] => 1748633496_adbe02475c0b7a2710ee.png
+            [fecha_subida] => 2025-05-30 19:31:36
+        )
+
+)
+
+DEBUG - 2025-05-30 19:31:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:32:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:32:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:32:47 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => jjjjjjjjjjj
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:32:47
+        )
+
+)
+
+DEBUG - 2025-05-30 19:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:33:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:33:04 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasdasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:33:04
+        )
+
+)
+
+DEBUG - 2025-05-30 19:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:36:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:36:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:36:16 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => hjhkk
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:36:16
+        )
+
+)
+
+DEBUG - 2025-05-30 19:36:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:36:24 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => piiiiiiiiiiiiiiiiiiiiiiii
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:36:24
+        )
+
+)
+
+DEBUG - 2025-05-30 19:36:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:36:52 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => sañd.as{ñdañslmda
+
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:36:52
+        )
+
+)
+
+DEBUG - 2025-05-30 19:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:37:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:37:30 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => sadas
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:37:30
+        )
+
+)
+
+DEBUG - 2025-05-30 19:37:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:37:36 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => zdxZd
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:37:36
+        )
+
+)
+
+DEBUG - 2025-05-30 19:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:38:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:38:06 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => sdasdas
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:38:06
+        )
+
+)
+
+DEBUG - 2025-05-30 19:40:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:40:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:40:07 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => asddasdasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:40:07
+        )
+
+)
+
+DEBUG - 2025-05-30 19:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:40:18 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => weeeeeeeep
+            [imagen] => 1748634018_c64d7e8e193fe4e778ce.png
+            [fecha_subida] => 2025-05-30 19:40:18
+        )
+
+)
+
+DEBUG - 2025-05-30 19:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:40:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 19:40:28 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => adasdasdasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 19:40:28
+        )
+
+)
+
+DEBUG - 2025-05-30 19:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:08:15 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasdas
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:08:15
+        )
+
+)
+
+DEBUG - 2025-05-30 20:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:16:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:22 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => sssssssssssssssssss
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:17:22
+        )
+
+)
+
+DEBUG - 2025-05-30 20:17:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:34 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => ssssssssssssssssszzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:17:34
+        )
+
+)
+
+DEBUG - 2025-05-30 20:17:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:17:56 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => estaba lidno esto!
+            [imagen] => 1748636276_3c025d6a077f10f82c6a.png
+            [fecha_subida] => 2025-05-30 20:17:56
+        )
+
+)
+
+DEBUG - 2025-05-30 20:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:23:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:23:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:23:22 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => mengueche lechon
+            [imagen] => 1748636602_b9b2c9c251c99f943afa.png
+            [fecha_subida] => 2025-05-30 20:23:22
+        )
+
+)
+
+DEBUG - 2025-05-30 20:23:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:31:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:33:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:34:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:35:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:35:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:35:08 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => asdasdasdas pipooooooooooo
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:35:08
+        )
+
+)
+
+DEBUG - 2025-05-30 20:35:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:40:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:40:47 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => menem
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:40:47
+        )
+
+)
+
+DEBUG - 2025-05-30 20:40:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:40:48 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => menem
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:40:48
+        )
+
+)
+
+DEBUG - 2025-05-30 20:40:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:40:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:40:58 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => menem
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:40:58
+        )
+
+)
+
+DEBUG - 2025-05-30 20:41:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:41:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:41:14 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => dasdasda
+            [imagen] => 1748637674_b18df18580ff53d3b0c5.png
+            [fecha_subida] => 2025-05-30 20:41:14
+        )
+
+)
+
+DEBUG - 2025-05-30 20:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:41:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:41:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:41:32 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => asdasdasda
+            [imagen] => 1748637692_a351083e89b3add2d002.png
+            [fecha_subida] => 2025-05-30 20:41:32
+        )
+
+)
+
+DEBUG - 2025-05-30 20:41:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:46:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:46:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:51:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:51:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:51:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:51:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 20:51:35 --> Insertando comentario: Array
+(
+    [data] => Array
+        (
+            [usuario] => sadasda
+            [comentario] => asdasdasda
+            [imagen] => 
+            [fecha_subida] => 2025-05-30 20:51:35
+        )
+
+)
+
+DEBUG - 2025-05-30 20:51:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:02:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:03:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:03:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:03:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:03:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:03:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:07:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:08:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:08:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:08:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:08:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:08:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:12:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:12:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:12:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:12:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:13:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-30 21:13:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

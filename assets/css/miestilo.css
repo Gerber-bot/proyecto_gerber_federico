@@ -386,3 +386,35 @@ a {
     font-size: 1rem;
   }
 }
+<<<<<<< Updated upstream
+=======
+
+/* Estilos para el catálogo */
+.card-img-top-container {
+  position: relative;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/* Mejoras para las cards */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la vista de detalle */
+.rounded-3 {
+  border-radius: 0.75rem !important;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #dee2e6 !important;
+}
+>>>>>>> Stashed changes

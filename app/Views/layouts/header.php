@@ -37,9 +37,30 @@
                 <i class="bi bi-person-circle fs-4 text-white"></i>
               </button>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="usuarioDropdown">
+<<<<<<< Updated upstream
                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar
                     Sesión</a></li>
                 <li><a class="dropdown-item" href="<?= base_url('usuario/miperfil') ?>">Mi Perfil</a></li>
+=======
+                <?php if (session()->get('isLoggedIn')): ?>
+                    <?php if (session()->get('identificador') == 1): ?>
+                        <li>
+                            <a class="dropdown-item" href="<?= base_url('panel') ?>">Panel de Administración</a>
+                        </li>
+                    <?php endif; ?>
+                    <li>
+                        <a class="dropdown-item" href="<?= base_url('usuario/miperfil') ?>">Mi Perfil</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="<?= base_url('logout') ?>">Cerrar Sesión</a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">Iniciar
+                            Sesión</a>
+                    </li>
+                <?php endif; ?>
+>>>>>>> Stashed changes
               </ul>
             </div>
           </div>

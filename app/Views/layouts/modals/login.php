@@ -145,7 +145,15 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                     timer: 1500,
                     showConfirmButton: false
                 }).then(() => {
+<<<<<<< Updated upstream
                     window.location.href = "<?= base_url('panel') ?>";
+=======
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    } else {
+                        window.location.reload();
+                    }
+>>>>>>> Stashed changes
                 });
             } else {
                 Swal.fire('Error', data.message || 'Correo o contraseña incorrectos', 'error');

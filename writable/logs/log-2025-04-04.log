@@ -50,7 +50,11 @@ Stack trace:
 #10 C:\xampp\htdocs\proyecto_gerber_federico\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 #11 C:\xampp\htdocs\proyecto_gerber_federico\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 #12 {main}
+<<<<<<< Updated upstream
 CRITICAL - 2025-04-04 19:32:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+=======
+CRITICAL - 2025-04-04 19:32:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+>>>>>>> Stashed changes
 Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
 [Method: GET, Route: /]
 in SYSTEMPATH\Database\BaseConnection.php on line 467.
@@ -100,7 +104,11 @@ Stack trace:
 #10 C:\xampp\htdocs\proyecto_gerber_federico\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 #11 C:\xampp\htdocs\proyecto_gerber_federico\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 #12 {main}
+<<<<<<< Updated upstream
 CRITICAL - 2025-04-04 19:33:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+=======
+CRITICAL - 2025-04-04 19:33:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+>>>>>>> Stashed changes
 Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
 [Method: GET, Route: /]
 in SYSTEMPATH\Database\BaseConnection.php on line 467.
