@@ -13,9 +13,11 @@ class Auth implements FilterInterface
         $session = session();
 
         if (!$session->get('isLoggedIn')) {
-            return redirect()->to('/login')->with('error', 'Debes iniciar sesión');
+            // Redirigir a home o principal si no está logueado
+            return redirect()->to('/');  // o '/principal.php' si esa es tu ruta
         }
 
+        // Si se pasan argumentos (como verificar si es admin)
         if ($arguments && isset($arguments[0])) {
             $identificador = $session->get('identificador');
             if ($identificador != $arguments[0]) {
@@ -23,11 +25,11 @@ class Auth implements FilterInterface
                 return redirect()->to('/');
             }
         }
-        // Si pasa, continúa la ejecución normal
     }
+
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
-        // No es necesario implementar nada aquí
+        // No implementado
     }
 }

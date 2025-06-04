@@ -105,174 +105,118 @@ if (!isset($vehiculo) || !$vehiculo) {
         </div>
     </div>
 
-    <!-- Características Adicionales -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <h2 class="border-bottom pb-2 mb-4 text-primary">Características Adicionales</h2>
-            <div class="row">
-                <?php if ($vehiculo['direccion_asistida']): ?>
-                    <div class="col-md-4 mb-3">
-                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
-                            <span class="fw-medium">Dirección asistida eléctrica</span>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($vehiculo['bluetooth']): ?>
-                    <div class="col-md-4 mb-3">
-                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
-                            <span class="fw-medium">Sistema Bluetooth</span>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($vehiculo['pantalla_tactil']): ?>
-                    <div class="col-md-4 mb-3">
-                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
-                            <span class="fw-medium">Pantalla táctil <?= esc($vehiculo['pantalla_tactil']) ?></span>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($vehiculo['airbags_frontales']): ?>
-                    <div class="col-md-4 mb-3">
-                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
-                            <span class="fw-medium">Airbags frontales</span>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($vehiculo['abs_ebd']): ?>
-                    <div class="col-md-4 mb-3">
-                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
-                            <span class="fw-medium">ABS con EBD</span>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <?php if ($vehiculo['camara_reversa']): ?>
-                    <div class="col-md-4 mb-3">
-                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
-                            <i class="bi bi-check-circle-fill text-success me-3 fs-4"></i>
-                            <span class="fw-medium">Cámara de reversa</span>
-                        </div>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-
-    <!-- Diseño Exterior -->
-    <?php if ($vehiculo['diseno_exterior']): ?>
+    <!--Sección de Características Especiales -->
+    <?php if (!empty($vehiculo['caracteristicas_adicionales'])): ?>
         <div class="row mb-5">
             <div class="col-12">
-                <h2 class="border-bottom pb-2 mb-4 text-primary">Diseño Exterior</h2>
-                <div class="row align-items-center">
-                    <?php if ($vehiculo['img_exterior']): ?>
-                        <div class="col-md-6 order-md-1">
-                            <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_exterior'])) ?>"
-                                class="img-fluid rounded-3 shadow-sm mb-3 mb-md-0" alt="Diseño exterior">
-                        </div>
-                    <?php endif; ?>
-                    <div class="col-md-6 order-md-2">
-                        <p><?= esc($vehiculo['diseno_exterior']) ?></p>
-                    </div>
+                <h2 class="border-bottom pb-2 mb-4 text-primary">Características Especiales</h2>
+                <div class="bg-light p-4 rounded-3">
+                    <?= nl2br(esc($vehiculo['caracteristicas_adicionales'])) ?>
                 </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Diseño Exterior -->
+    <?php if (!empty($vehiculo['diseno_exterior'])): ?>
+        <div class="row mb-5 align-items-center">
+            <div class="col-12 mb-4">
+                <h2 class="border-bottom pb-2 text-primary">Diseño Exterior</h2>
+            </div>
+            <div class="col-md-6">
+                <?php if (!empty($vehiculo['img_exterior'])): ?>
+                    <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_exterior'])) ?>"
+                        class="seccion-imagen rounded-3 shadow-sm" alt="Diseño exterior">
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6">
+                <p class="px-3"><?= esc($vehiculo['diseno_exterior']) ?></p>
             </div>
         </div>
     <?php endif; ?>
 
     <!-- Diseño Interior -->
-    <?php if ($vehiculo['diseno_interior']): ?>
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2 class="border-bottom pb-2 mb-4 text-primary">Diseño Interior</h2>
-                <div class="row align-items-center">
-                    <div class="col-md-6 order-md-2">
-                        <?php if ($vehiculo['img_interior1']): ?>
-                            <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_interior1'])) ?>"
-                                class="img-fluid rounded-3 shadow-sm mb-3" alt="Diseño interior">
-                        <?php endif; ?>
-                    </div>
-                    <div class="col-md-6 order-md-1">
-                        <p><?= esc($vehiculo['diseno_interior']) ?></p>
-                        <?php if ($vehiculo['img_interior2']): ?>
-                            <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_interior2'])) ?>"
-                                class="img-fluid rounded-3 shadow-sm mt-3" alt="Diseño interior">
-                        <?php endif; ?>
-                    </div>
-                </div>
+    <?php if (!empty($vehiculo['diseno_interior'])): ?>
+        <div class="row mb-5 align-items-center">
+            <div class="col-12 mb-4">
+                <h2 class="border-bottom pb-2 text-primary">Diseño Interior</h2>
+            </div>
+            <div class="col-md-6 order-md-2">
+                <?php if (!empty($vehiculo['img_interior1'])): ?>
+                    <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_interior1'])) ?>"
+                        class="seccion-imagen rounded-3 shadow-sm" alt="Diseño interior">
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 order-md-1">
+                <p class="px-3"><?= esc($vehiculo['diseno_interior']) ?></p>
             </div>
         </div>
+        <?php if (!empty($vehiculo['img_interior2'])): ?>
+            <div class="row mb-5">
+                <div class="col-md-6 offset-md-6">
+                    <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_interior2'])) ?>"
+                        class="seccion-imagen rounded-3 shadow-sm mt-3" alt="Diseño interior">
+                </div>
+            </div>
+        <?php endif; ?>
     <?php endif; ?>
 
     <!-- Tamaño del Baúl -->
-    <?php if ($vehiculo['tamano_baul']): ?>
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2 class="border-bottom pb-2 mb-4 text-primary">Tamaño del Baúl</h2>
-                <div class="row align-items-center">
-                    <?php if ($vehiculo['img_baul']): ?>
-                        <div class="col-md-6 order-md-1">
-                            <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_baul'])) ?>"
-                                class="img-fluid rounded-3 shadow-sm mb-3 mb-md-0" alt="Tamaño del baúl">
-                        </div>
-                    <?php endif; ?>
-                    <div class="col-md-6 order-md-2">
-                        <p><?= esc($vehiculo['tamano_baul']) ?></p>
-                    </div>
-                </div>
+    <?php if (!empty($vehiculo['tamano_baul'])): ?>
+        <div class="row mb-5 align-items-center">
+            <div class="col-12 mb-4">
+                <h2 class="border-bottom pb-2 text-primary">Tamaño del Baúl</h2>
+            </div>
+            <div class="col-md-6">
+                <?php if (!empty($vehiculo['img_baul'])): ?>
+                    <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_baul'])) ?>"
+                        class="seccion-imagen rounded-3 shadow-sm" alt="Tamaño del baúl">
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6">
+                <p class="px-3"><?= esc($vehiculo['tamano_baul']) ?></p>
             </div>
         </div>
     <?php endif; ?>
 
     <!-- Motor -->
-    <?php if ($vehiculo['motor_info']): ?>
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2 class="border-bottom pb-2 mb-4 text-primary">Motor</h2>
-                <div class="row align-items-center">
-                    <div class="col-md-6 order-md-2">
-                        <?php if ($vehiculo['img_motor']): ?>
-                            <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_motor'])) ?>"
-                                class="img-fluid rounded-3 shadow-sm mb-3 mb-md-0" alt="Motor">
-                        <?php endif; ?>
-                    </div>
-                    <div class="col-md-6 order-md-1">
-                        <p><?= esc($vehiculo['motor_info']) ?></p>
-                    </div>
-                </div>
+    <?php if (!empty($vehiculo['motor_info'])): ?>
+        <div class="row mb-5 align-items-center">
+            <div class="col-12 mb-4">
+                <h2 class="border-bottom pb-2 text-primary">Motor</h2>
+            </div>
+            <div class="col-md-6 order-md-2">
+                <?php if (!empty($vehiculo['img_motor'])): ?>
+                    <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_motor'])) ?>"
+                        class="seccion-imagen rounded-3 shadow-sm" alt="Motor">
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 order-md-1">
+                <p class="px-3"><?= esc($vehiculo['motor_info']) ?></p>
             </div>
         </div>
     <?php endif; ?>
 
     <!-- Neumáticos -->
-    <?php if ($vehiculo['neumaticos']): ?>
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2 class="border-bottom pb-2 mb-4 text-primary">Neumáticos</h2>
-                <div class="row align-items-center">
-                    <?php if ($vehiculo['img_neumaticos']): ?>
-                        <div class="col-md-6 order-md-1">
-                            <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_neumaticos'])) ?>"
-                                class="img-fluid rounded-3 shadow-sm mb-3 mb-md-0" alt="Neumáticos">
-                        </div>
-                    <?php endif; ?>
-                    <div class="col-md-6 order-md-2">
-                        <p><?= esc($vehiculo['neumaticos']) ?></p>
-                    </div>
-                </div>
+    <?php if (!empty($vehiculo['neumaticos'])): ?>
+        <div class="row mb-5 align-items-center">
+            <div class="col-12 mb-4">
+                <h2 class="border-bottom pb-2 text-primary">Neumáticos</h2>
+            </div>
+            <div class="col-md-6">
+                <?php if (!empty($vehiculo['img_neumaticos'])): ?>
+                    <img src="<?= base_url('assets/img/catalogo/productos/' . esc($vehiculo['img_neumaticos'])) ?>"
+                        class="seccion-imagen rounded-3 shadow-sm" alt="Neumáticos">
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6">
+                <p class="px-3"><?= esc($vehiculo['neumaticos']) ?></p>
             </div>
         </div>
     <?php endif; ?>
 
     <!-- Accesorios -->
-    <?php if ($vehiculo['accesorios']): ?>
+    <?php if (!empty($vehiculo['accesorios'])): ?>
         <div class="row mb-5">
             <div class="col-12">
                 <h2 class="border-bottom pb-2 mb-4 text-primary">Accesorios</h2>

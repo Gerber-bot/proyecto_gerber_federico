@@ -6,9 +6,11 @@ use App\Models\UsuarioModel;
 
 class Auth extends BaseController
 {
+    // Registro de usuario
     public function register()
     {
         $data = $this->request->getJSON();
+
         $model = new UsuarioModel();
 
         $existingUser = $model->where('email', $data->email)->first();
@@ -26,6 +28,7 @@ class Auth extends BaseController
         return $this->response->setJSON(['message' => 'Usuario registrado correctamente'])->setStatusCode(201);
     }
 
+    // Login de usuario
     public function login()
     {
         try {
