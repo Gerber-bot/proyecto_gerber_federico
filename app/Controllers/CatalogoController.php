@@ -89,7 +89,7 @@ class CatalogoController extends BaseController
 
         // Validación
         $rules = [
-            'marca' => 'required|min_length[3]', 
+            'marca' => 'required|min_length[3]',
             'nombre' => 'required|min_length[3]',
             'descripcion' => 'required',
             'precio_base' => 'required|decimal',
@@ -146,6 +146,7 @@ class CatalogoController extends BaseController
             'tamano_baul' => $this->request->getPost('tamano_baul'),
             'motor_info' => $this->request->getPost('motor_info'),
             'neumaticos' => $this->request->getPost('neumaticos'),
+            'caracteristicas_adicionales' => $this->request->getPost('caracteristicas_adicionales'),
             'accesorios' => $this->request->getPost('accesorios'),
             'precio_base' => $this->request->getPost('precio_base'),
             'stock' => $this->request->getPost('stock'),
@@ -256,11 +257,10 @@ class CatalogoController extends BaseController
         $productoModel = new ProductoModel();
         $data = $this->request->getPost();
 
-        // Aquí puedes agregar validaciones y manejo de imágenes si corresponde
-
+        // El modelo manejará automáticamente el campo de texto
         $productoModel->update($id, $data);
 
-        return redirect()->to('catalogo_admin')->with('msg', 'Producto actualizado correctamente');
+        return redirect()->to('catalogo_admin')->with('success', 'Producto actualizado');
     }
 
     // Métodos para el carrito de compras
@@ -358,28 +358,29 @@ class CatalogoController extends BaseController
         return redirect()->to('compras')->with('error', 'Producto no encontrado en el carrito');
     }
 
-    public function finalizar_compra() {
+    public function finalizar_compra()
+    {
         // 1. Validar sesión
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('login')->with('error', 'Debes iniciar sesión');
         }
-    
+
         // 2. Validar carrito no vacío
         $carrito = session()->get('carrito') ?? [];
         if (empty($carrito)) {
             return redirect()->to('compras')->with('error', 'El carrito está vacío');
         }
-    
+
         $db = \Config\Database::connect();
         $db->transStart(); // Iniciar transacción
-    
+
         try {
             // 3. Calcular total
             $total = 0;
             foreach ($carrito as $item) {
                 $total += $item['precio'] * $item['cantidad'];
             }
-    
+
             // 4. Guardar cabecera de transacción
             $db->table('transacciones_maestro')->insert([
                 'usuario_id' => session()->get('id'),
@@ -388,7 +389,7 @@ class CatalogoController extends BaseController
                 'fecha_creacion' => date('Y-m-d H:i:s')
             ]);
             $transaccionId = $db->insertID();
-    
+
             // 5. Procesar cada producto
             foreach ($carrito as $item) {
                 // Validar stock
@@ -396,11 +397,11 @@ class CatalogoController extends BaseController
                     ->where('id', $item['id'])
                     ->get()
                     ->getRow();
-                    
+
                 if (!$producto || $producto->stock < $item['cantidad']) {
                     throw new \Exception("No hay stock para: {$item['nombre']}");
                 }
-    
+
                 // Guardar detalle
                 $db->table('transacciones_detalle')->insert([
                     'transaccion_id' => $transaccionId,
@@ -409,18 +410,18 @@ class CatalogoController extends BaseController
                     'precio_unitario' => $item['precio'],
                     'subtotal' => $item['precio'] * $item['cantidad']
                 ]);
-    
+
                 // Actualizar stock
                 $db->table('productos')
                     ->where('id', $item['id'])
                     ->set('stock', 'stock - ' . $item['cantidad'], false)
                     ->update();
             }
-    
+
             $db->transComplete(); // Confirmar transacción
             session()->remove('carrito'); // Limpiar carrito
             return redirect()->to('compras')->with('success', '¡Compra exitosa!');
-    
+
         } catch (\Exception $e) {
             $db->transRollback(); // Revertir cambios
             return redirect()->to('compras')->with('error', 'Error: ' . $e->getMessage());
@@ -496,5 +497,5 @@ class CatalogoController extends BaseController
             'productos' => $productos
         ]);
     }
-    
+
 }

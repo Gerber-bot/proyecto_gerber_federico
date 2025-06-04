@@ -11,6 +11,7 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/', 'Home::index');
 $routes->get('logout', 'Auth::logout');
+$routes->get('login', 'Auth::login');
 
 
 // 2. SECCIONES PÚBLICAS
