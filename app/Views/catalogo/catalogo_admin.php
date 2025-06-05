@@ -67,7 +67,10 @@
         </table>
     </div>
 
-    <a href="<?= base_url('catalogo/agregar') ?>" class="btn btn-primary mt-3">Agregar Nuevo Vehículo</a>
+    <div class="d-flex justify-content-between mt-3">
+        <a href="<?= base_url('catalogo/agregar') ?>" class="btn btn-primary">Agregar Nuevo Vehículo</a>
+        <a href="<?= base_url('/back/catalogo/marcas') ?>" class="btn btn-secondary">Gestionar Marcas</a>
+    </div>
 </div>
 
 <?= $this->endSection() ?>

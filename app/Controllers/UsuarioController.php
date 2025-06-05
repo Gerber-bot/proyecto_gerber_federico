@@ -50,7 +50,7 @@ class UsuarioController extends BaseController
         'citas' => $citas,
         'consultas' => $consultas,
         'agendas' => $agendas,
-        'buscar' => $buscar // Para mantener el valor en la vista
+        'buscar' => $buscar 
     ];
 
     return view('back/usuarios/listar_view', $data);

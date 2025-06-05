@@ -13,18 +13,20 @@ class Auth extends BaseController
 
         $model = new UsuarioModel();
 
+        // Verificar si el email ya existe
         $existingUser = $model->where('email', $data->email)->first();
         if ($existingUser) {
             return $this->response->setJSON(['message' => 'El correo ya está registrado'])->setStatusCode(409);
         }
 
+        // Registrar nuevo usuario
         $model->save([
             'nombre' => $data->nombre,
             'apellido' => $data->apellido,
             'email' => $data->email,
             'password' => password_hash($data->password, PASSWORD_DEFAULT),
-            'identificador' => 2, // Por defecto cliente, cambia según tu lógica
-            'estado' => 'activo' // Ejemplo, ajusta según tu BD
+            'identificador' => 0, // Cliente por defecto
+            'estado' => 1          // Habilitado por defecto
         ]);
 
         return $this->response->setJSON(['message' => 'Usuario registrado correctamente'])->setStatusCode(201);
@@ -44,10 +46,12 @@ class Auth extends BaseController
             $user = $model->where('email', $data['email'])->first();
 
             if ($user) {
-                if (($user['estado'] ?? '') === 'baja') {
-                    return $this->response->setJSON(['message' => 'Usuario dado de baja'])->setStatusCode(403);
+                // Validar si está deshabilitado
+                if (($user['estado'] ?? 0) == 0) {
+                    return $this->response->setJSON(['message' => 'Usuario deshabilitado'])->setStatusCode(403);
                 }
 
+                // Validar contraseña
                 if (password_verify($data['password'], $user['password'])) {
                     session()->set([
                         'id' => $user['id'],
@@ -59,6 +63,7 @@ class Auth extends BaseController
                         'isLoggedIn' => true
                     ]);
 
+                    // Redirección según perfil
                     if ($user['identificador'] == 1) {
                         return $this->response->setJSON(['redirect' => base_url('panel')]);
                     } else {

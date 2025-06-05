@@ -33,7 +33,10 @@ $routes->group('servicios', function ($routes) {
 
 // Clientes
 $routes->get('clientes/experiencias', 'Home::experiencias');
-
+$routes->post('comentarios/guardar', 'Comentarios::guardar');
+$routes->get('comentarios/mostrarImagen/(:any)', 'Comentarios::mostrarImagen/$1');
+$routes->get('comentarios/listar', 'Comentarios::listar');
+$routes->get('clientes/experiencias', 'Home::experiencias');
 
 // 3. AUTENTICACIÓN
 
@@ -90,7 +93,14 @@ $routes->group('', ['filter' => 'Auth:1'], function ($routes) {
     $routes->get('catalogo/agregar', 'CatalogoController::agregar');
     $routes->post('catalogo/guardar', 'CatalogoController::guardar');
     $routes->get('catalogo_admin', 'CatalogoController::catalogo_admin');
-    
+    $routes->group('back/catalogo/marcas', function($routes) {
+        $routes->get('/', 'MarcasController::index');
+        $routes->get('crear', 'MarcasController::crear');
+        $routes->post('guardar', 'MarcasController::guardar');
+        $routes->get('editar/(:num)', 'MarcasController::editar/$1');
+        $routes->post('actualizar/(:num)', 'MarcasController::actualizar/$1');
+        $routes->get('cambiar-estado/(:num)', 'MarcasController::cambiarEstado/$1');
+    });
     // Operaciones por ID 
     $routes->get('catalogo/deshabilitar/(:num)', 'CatalogoController::deshabilitar/$1');
     $routes->get('catalogo/habilitar/(:num)', 'CatalogoController::habilitar/$1');
@@ -118,6 +128,20 @@ $routes->group('', ['filter' => 'Auth:1'], function ($routes) {
     $routes->get('citas/marcar_atendido/(:num)', 'CitaController::marcar_atendido/$1');
     $routes->get('citas/cancelar/(:num)', 'CitaController::cancelar/$1');
     $routes->post('citas/agregar/(:num)', 'CitaController::actualizar/$1');
+
+
+
+
+
+
+    
+    $routes->get('trabaja-con-nosotros', 'TrabajaConNosotros::index');
+    $routes->post('trabaja-con-nosotros/guardar', 'TrabajaConNosotros::guardar');
+    
+
+
+
+
     
     // ---------------------------
     // ESTADÍSTICAS

@@ -4,28 +4,34 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ProductoModel;
+use App\Models\MarcaModel;
 
 class CatalogoController extends BaseController
 {
     // Método para mostrar el catálogo principal
     public function catalogo()
     {
+        // Cargar modelos
         $productoModel = new ProductoModel();
-        $productoModel->where('estado', 1);
+        $marcaModel = new MarcaModel();
 
+        // Configurar paginación
         $perPage = 6;
-        $currentPage = $this->request->getGet('page') ?? 1;
 
+        // Obtener filtros
         $filtros = [
-            'marca' => $this->request->getGet('marca'),
+            'marca_id' => $this->request->getGet('marca_id'),
             'anio' => $this->request->getGet('anio'),
             'transmision' => $this->request->getGet('transmision'),
             'orden' => $this->request->getGet('orden') ?? 'recientes'
         ];
 
-        // Construir consulta base usando el modelo
-        if (!empty($filtros['marca'])) {
-            $productoModel->where('marca', $filtros['marca']);
+        // Configurar consulta base
+        $productoModel->where('productos.estado', 1);
+
+        // Aplicar filtros
+        if (!empty($filtros['marca_id'])) {
+            $productoModel->where('marca_id', $filtros['marca_id']);
         }
         if (!empty($filtros['anio'])) {
             $productoModel->where('anio', $filtros['anio']);
@@ -52,44 +58,36 @@ class CatalogoController extends BaseController
                 $productoModel->orderBy('id', 'DESC');
         }
 
-        $data['productos'] = $productoModel->paginate($perPage, 'default', $currentPage);
-        $data['pager'] = $productoModel->pager;
-        $data['filtros'] = $filtros;
+        // Obtener datos para filtros
+        $data = [
+            'productos' => $productoModel->paginate($perPage),
+            'pager' => $productoModel->pager,
+            'filtros' => $filtros,
+            'marcas_disponibles' => $marcaModel->where('estado', 1)->findAll(),
+            'anios' => $productoModel->select('anio')->distinct()->orderBy('anio', 'DESC')->findAll(),
+            'transmisiones' => $productoModel->select('transmision')->distinct()->findAll()
+        ];
 
-        // Configurar el pager para mantener los filtros
-        $data['pager']->setPath(base_url('catalogo'), http_build_query($filtros));
-
-        // Obtener valores únicos para los selectores
-        $data['marcas_disponibles'] = $productoModel->distinct()
-            ->select('marca')
-            ->where('marca IS NOT NULL')
-            ->orderBy('marca', 'ASC')
-            ->findAll();
-
-        $data['anios'] = $productoModel->distinct()
-            ->select('anio')
-            ->orderBy('anio', 'DESC')
-            ->findAll();
-
-        $data['transmisiones'] = $productoModel->distinct()
-            ->select('transmision')
-            ->findAll();
-
+        // Cargar vista
         return view('catalogo/catalogo', $data);
     }
     // Método para mostrar formulario de agregar producto
     public function agregar()
     {
-        return view('catalogo/agregar');
+        $marcaModel = new MarcaModel();
+        $data['marcas'] = $marcaModel->where('estado', 1)
+            ->orderBy('nombre', 'ASC')
+            ->findAll();
+
+        return view('catalogo/agregar', $data);
     }
 
     // Método para procesar el guardado
     public function guardar()
     {
-
-        // Validación
+        // Validación actualizada para usar marca_id
         $rules = [
-            'marca' => 'required|min_length[3]',
+            'marca_id' => 'required|numeric', // Cambiado de 'marca' a 'marca_id'
             'nombre' => 'required|min_length[3]',
             'descripcion' => 'required',
             'precio_base' => 'required|decimal',
@@ -100,7 +98,7 @@ class CatalogoController extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Procesar imágenes 
+        // Procesar imágenes (se mantiene igual)
         $imagenes = [];
         $camposImagen = [
             'img_principal',
@@ -114,7 +112,6 @@ class CatalogoController extends BaseController
 
         foreach ($camposImagen as $campo) {
             $file = $this->request->getFile($campo);
-
             if ($file && $file->isValid() && !$file->hasMoved()) {
                 $newName = $file->getRandomName();
                 $file->move(FCPATH . 'assets/img/catalogo/productos', $newName);
@@ -122,9 +119,9 @@ class CatalogoController extends BaseController
             }
         }
 
-        // Datos completos para guardar 
+        // Datos completos para guardar (actualizado para marca_id)
         $data = [
-            'marca' => $this->request->getPost('marca'),
+            'marca_id' => $this->request->getPost('marca_id'), // Usamos marca_id en lugar de marca
             'nombre' => $this->request->getPost('nombre'),
             'descripcion' => $this->request->getPost('descripcion'),
             'anio' => $this->request->getPost('anio'),
@@ -135,12 +132,7 @@ class CatalogoController extends BaseController
             'consumo' => $this->request->getPost('consumo'),
             'tanque' => $this->request->getPost('tanque'),
             'velocidad_maxima' => $this->request->getPost('velocidad_maxima'),
-            'direccion_asistida' => $this->request->getPost('direccion_asistida') ? 1 : 0,
-            'bluetooth' => $this->request->getPost('bluetooth') ? 1 : 0,
             'pantalla_tactil' => $this->request->getPost('pantalla_tactil'),
-            'airbags_frontales' => $this->request->getPost('airbags_frontales') ? 1 : 0,
-            'abs_ebd' => $this->request->getPost('abs_ebd') ? 1 : 0,
-            'camara_reversa' => $this->request->getPost('camara_reversa') ? 1 : 0,
             'diseno_exterior' => $this->request->getPost('diseno_exterior'),
             'diseno_interior' => $this->request->getPost('diseno_interior'),
             'tamano_baul' => $this->request->getPost('tamano_baul'),
@@ -162,28 +154,61 @@ class CatalogoController extends BaseController
             $productoModel->insert($data);
             return redirect()->to('catalogo')->with('success', 'Vehículo agregado correctamente');
         } catch (\Exception $e) {
+            // Eliminar imágenes subidas si hubo error
+            foreach ($imagenes as $imagen) {
+                if (file_exists(FCPATH . 'assets/img/catalogo/productos/' . $imagen)) {
+                    unlink(FCPATH . 'assets/img/catalogo/productos/' . $imagen);
+                }
+            }
             return redirect()->back()->withInput()->with('error', 'Error al guardar: ' . $e->getMessage());
         }
     }
     public function vehiculo($id)
     {
-        $productoModel = new ProductoModel();
-        $data['vehiculo'] = $productoModel->find($id);
+        try {
+            $productoModel = new ProductoModel();
 
-        if (!$data['vehiculo']) {
-            return redirect()->to('catalogo')->with('error', 'Vehículo no encontrado');
+            // Simple find first to verify product exists
+            $vehiculo = $productoModel->find($id);
+
+            if (!$vehiculo) {
+                throw new \Exception('Vehículo no encontrado');
+            }
+
+            // If you need marca info, join with marcas table
+            $vehiculo = $productoModel->select('productos.*, marcas.nombre as marca_nombre')
+                ->join('marcas', 'marcas.id = productos.marca_id')
+                ->where('productos.id', $id)
+                ->first();
+
+            if (!$vehiculo) {
+                throw new \Exception('Vehículo no encontrado');
+            }
+
+            return view('catalogo/vehiculo', ['vehiculo' => $vehiculo]);
+
+        } catch (\Exception $e) {
+            log_message('error', 'Error al cargar vehículo: ' . $e->getMessage());
+            return redirect()->to('catalogo')->with('error', $e->getMessage());
         }
-
-        return view('catalogo/vehiculo', $data);
     }
 
 
     public function catalogo_admin()
     {
-
         $productoModel = new ProductoModel();
-        $data['productos'] = $productoModel->orderBy('id', 'DESC')->findAll();
-        $data['titulo'] = 'Gestión de Vehículos';
+        $productos = $productoModel->getWithMarca();
+
+        // Transformar los datos
+        $productos = array_map(function ($producto) {
+            $producto['marca'] = $producto['marca_nombre'];
+            return $producto;
+        }, $productos);
+
+        $data = [
+            'productos' => $productos,
+            'titulo' => 'Gestión de Vehículos'
+        ];
 
         return view('catalogo/catalogo_admin', $data);
     }
@@ -249,15 +274,57 @@ class CatalogoController extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Producto no encontrado');
         }
 
-        return view('catalogo/editar', ['producto' => $producto]);
+        $marcaModel = new MarcaModel();
+        $data = [
+            'producto' => $producto,
+            'marcas' => $marcaModel->where('estado', 1)
+                ->orderBy('nombre', 'ASC')
+                ->findAll()
+        ];
+
+        return view('catalogo/editar', $data);
     }
+
 
     public function actualizar($id)
     {
         $productoModel = new ProductoModel();
         $data = $this->request->getPost();
 
-        // El modelo manejará automáticamente el campo de texto
+        // Procesar imágenes si se subieron nuevas
+        $imagenes = [];
+        $camposImagen = [
+            'img_principal',
+            'img_exterior',
+            'img_interior1',
+            'img_interior2',
+            'img_baul',
+            'img_motor',
+            'img_neumaticos'
+        ];
+
+        foreach ($camposImagen as $campo) {
+            $file = $this->request->getFile($campo);
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                $newName = $file->getRandomName();
+                $file->move(FCPATH . 'assets/img/catalogo/productos', $newName);
+                $imagenes[$campo] = $newName;
+
+                // Eliminar imagen anterior si existe
+                $producto = $productoModel->find($id);
+                if (!empty($producto[$campo])) {
+                    $oldImage = FCPATH . 'assets/img/catalogo/productos/' . $producto[$campo];
+                    if (file_exists($oldImage)) {
+                        unlink($oldImage);
+                    }
+                }
+            }
+        }
+
+        // Combinar datos del formulario con las nuevas imágenes
+        $data = array_merge($data, $imagenes);
+
+        // Actualizar producto
         $productoModel->update($id, $data);
 
         return redirect()->to('catalogo_admin')->with('success', 'Producto actualizado');

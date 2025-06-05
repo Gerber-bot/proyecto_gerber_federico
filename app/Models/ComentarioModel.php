@@ -14,15 +14,19 @@ class ComentarioModel extends Model
     
     protected $validationRules = [
         'usuario' => 'required|max_length[100]',
-        'comentario' => 'required|min_length[3]',
+        'comentario' => 'required|min_length[3]|max_length[1000]',
         'imagen' => 'permit_empty|max_length[255]'
     ];
     
-    protected $beforeInsert = ['logBeforeInsert'];
-    
-    protected function logBeforeInsert(array $data)
-    {
-        log_message('debug', 'Insertando comentario: ' . print_r($data, true));
-        return $data;
-    }
+    protected $validationMessages = [
+        'usuario' => [
+            'required' => 'El usuario es requerido',
+            'max_length' => 'El usuario no puede exceder 100 caracteres'
+        ],
+        'comentario' => [
+            'required' => 'El comentario es requerido',
+            'min_length' => 'El comentario debe tener al menos 3 caracteres',
+            'max_length' => 'El comentario no puede exceder 1000 caracteres'
+        ]
+    ];
 }

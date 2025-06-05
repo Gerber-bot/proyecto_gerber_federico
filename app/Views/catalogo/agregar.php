@@ -27,17 +27,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Marca*</label>
-                        <select name="marca" class="form-select" required>
+                        <select name="marca_id" class="form-select" required>
                             <option value="">Seleccione una marca</option>
-                            <option value="Fiat">Fiat</option>
-                            <option value="Renault">Renault</option>
-                            <option value="Ford">Ford</option>
-                            <option value="Chevrolet">Chevrolet</option>
-                            <option value="Volkswagen">Volkswagen</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Honda">Honda</option>
-                            <option value="Hyundai">Hyundai</option>
-                            <!-- Agrega aquí cualquier otra marca que necesites -->
+                            <?php foreach ($marcas as $marca): ?>
+                                <option value="<?= esc($marca['id']) ?>"><?= esc($marca['nombre']) ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                     <div class="col-md-3">

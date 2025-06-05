@@ -14,7 +14,7 @@ class Auth implements FilterInterface
 
         if (!$session->get('isLoggedIn')) {
             // Redirigir a home o principal si no está logueado
-            return redirect()->to('/');  // o '/principal.php' si esa es tu ruta
+            return redirect()->to('/');  
         }
 
         // Si se pasan argumentos (como verificar si es admin)

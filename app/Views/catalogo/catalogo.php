@@ -14,14 +14,12 @@
             <form method="get" action="<?= base_url('catalogo') ?>" class="row g-3">
                 <div class="col-md-3">
                     <label class="form-label">Marca</label>
-                    <select name="marca" class="form-select">
+                    <select name="marca_id" class="form-select">
                         <option value="">Todas las marcas</option>
                         <?php foreach ($marcas_disponibles as $marca): ?>
-                            <?php if (!empty($marca['marca'])): ?>
-                                <option value="<?= esc($marca['marca']) ?>" <?= ($filtros['marca'] ?? '') == $marca['marca'] ? 'selected' : '' ?>>
-                                    <?= esc(ucfirst(strtolower($marca['marca']))) ?>
-                                </option>
-                            <?php endif; ?>
+                            <option value="<?= esc($marca['id']) ?>" <?= ($filtros['marca_id'] ?? '') == $marca['id'] ? 'selected' : '' ?>>
+                                <?= esc($marca['nombre']) ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
