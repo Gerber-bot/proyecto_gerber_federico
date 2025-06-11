@@ -10,8 +10,6 @@
 <div class="container py-4">
     <form action="<?= base_url('usuarios/actualizar/' . $usuario['id']) ?>" method="post">
         <?= csrf_field() ?>
-        
-        <!-- Campos de solo lectura -->
         <div class="mb-3">
             <label class="form-label">Nombre</label>
             <input type="text" class="form-control" value="<?= esc($usuario['nombre']) ?>" readonly>
@@ -27,7 +25,7 @@
             <input type="email" class="form-control" value="<?= esc($usuario['email']) ?>" readonly>
         </div>
 
-        <!-- Campo editable - Rol -->
+        <!-- Editar - Rol -->
         <div class="mb-3">
             <label for="identificador" class="form-label">Rol</label>
             <select name="identificador" class="form-select" required>

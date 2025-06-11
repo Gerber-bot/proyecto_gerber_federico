@@ -6,7 +6,7 @@
   <!--  CONTENIDO DE LA PAGUINA-->
   <section id="info-legal" class="bg-light text-dark py-5 px-3">
     <div class="container">
-      <h2 class="mb-4 text-center">Información Legal</h2>
+      <h2 class="mb-4 text-center">INFORMACIÓN LEGAL</h2>
       <p>Automotors SRL ha creado este sitio web con fines informativos para sus usuarios, quienes al ingresar aceptan
         automáticamente estas condiciones generales de uso.</p>
 

@@ -2,7 +2,17 @@
 <?= $this->section('content') ?>
 
 <div class="container mt-4">
-    <h2 class="mb-4">Gestión de Vehículos</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Gestión de Vehículos</h2>
+        <div>
+            <a href="<?= base_url('catalogo/agregar') ?>" class="btn btn-primary me-2">
+                <i class="bi bi-plus-circle"></i> Agregar Nuevo Vehículo
+            </a>
+            <a href="<?= base_url('/back/catalogo/marcas') ?>" class="btn btn-secondary">
+                <i class="bi bi-tags"></i> Gestionar Marcas
+            </a>
+        </div>
+    </div>
 
     <?php if (session()->getFlashdata('msg')): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -33,9 +43,8 @@
                         <td>$<?= number_format($producto['precio_base'], 2) ?></td>
                         <td>
                             <?= $producto['stock'] ?>
-                            <a href="<?= base_url('catalogo/editar_stock/' . $producto['id']) ?>" 
-                               class="btn btn-sm btn-outline-primary ms-2"
-                               title="Editar stock">
+                            <a href="<?= base_url('catalogo/editar_stock/' . $producto['id']) ?>"
+                                class="btn btn-sm btn-outline-primary ms-2" title="Editar stock">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                         </td>
@@ -66,8 +75,6 @@
             </tbody>
         </table>
     </div>
-
-    <a href="<?= base_url('catalogo/agregar') ?>" class="btn btn-primary mt-3">Agregar Nuevo Vehículo</a>
 </div>
 
 <?= $this->endSection() ?>

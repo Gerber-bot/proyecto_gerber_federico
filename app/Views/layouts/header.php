@@ -23,12 +23,14 @@
           </ul>
 
           <div class="d-flex align-items-center gap-3">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar vehículos" aria-label="Buscar">
+            <form class="d-flex" role="search" action="<?= base_url('catalogo') ?>" method="get">
+              <input class="form-control me-2" name="search" type="search" placeholder="Buscar vehículos"
+                aria-label="Buscar">
               <button class="btn btn-outline-light" type="submit">
                 <i class="bi bi-search"></i>
               </button>
             </form>
+
 
             <!-- Ícono con menú desplegable -->
             <div class="dropdown">

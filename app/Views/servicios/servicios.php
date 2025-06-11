@@ -5,7 +5,7 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main class="container my-5">
     <section class="text-center mb-5">
-      <h1 class="display-4 fw-bold">Nuestros Servicios</h1>
+      <h1 class="display-4 fw-bold">NUESTROS SERVICIOS</h1>
       <p class="lead">Descubre lo que podemos ofrecerte</p>
       <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#modalAgendar">
         <i class="bi bi-calendar-check"></i> Agendar un Servicio

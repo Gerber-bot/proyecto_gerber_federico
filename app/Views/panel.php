@@ -32,10 +32,11 @@
             <h2>¡Bienvenido, <?= esc($nombre) ?>!</h2>
             <p class="text-muted">Este es tu panel de administrador. Desde aquí podés gestionar el sistema.</p>
 
-            <!-- Aquí podrías agregar tarjetas u opciones exclusivas del administrador -->
-            <div class="d-flex justify-content-center mt-4 gap-3">
+            <!-- Opciones exclusivas del administrador -->
+            <div class="d-flex justify-content-center mt-4 gap-3 flex-wrap">
                 <a href="<?= base_url('catalogo_admin') ?>" class="btn btn-outline-primary">Gestionar Vehículos</a>
                 <a href="<?= base_url('usuarios') ?>" class="btn btn-outline-secondary">Ver Usuarios</a>
+                <a href="<?= base_url('panel/postulantes') ?>" class="btn btn-outline-info">Ver Postulantes</a>
                 <a href="<?= base_url('estadisticas') ?>" class="btn btn-outline-success">Ver Estadísticas</a>
             </div>
 

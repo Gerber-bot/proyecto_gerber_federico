@@ -13,18 +13,20 @@ class Auth extends BaseController
 
         $model = new UsuarioModel();
 
+        // Verificar si el email ya existe
         $existingUser = $model->where('email', $data->email)->first();
         if ($existingUser) {
             return $this->response->setJSON(['message' => 'El correo ya está registrado'])->setStatusCode(409);
         }
 
+        // Registrar nuevo usuario
         $model->save([
             'nombre' => $data->nombre,
             'apellido' => $data->apellido,
             'email' => $data->email,
             'password' => password_hash($data->password, PASSWORD_DEFAULT),
-            'identificador' => 2, // Por defecto cliente, cambia según tu lógica
-            'estado' => 'activo' // Ejemplo, ajusta según tu BD
+            'identificador' => 0, // Cliente por defecto
+            'estado' => 1          // Habilitado por defecto
         ]);
 
         return $this->response->setJSON(['message' => 'Usuario registrado correctamente'])->setStatusCode(201);
@@ -35,6 +37,7 @@ class Auth extends BaseController
     {
         try {
             $data = $this->request->getJSON(true) ?? $this->request->getPost();
+            $session = session();
 
             if (!is_array($data) || !isset($data['email']) || !isset($data['password'])) {
                 return $this->response->setJSON(['message' => 'Faltan credenciales'])->setStatusCode(400);
@@ -44,12 +47,14 @@ class Auth extends BaseController
             $user = $model->where('email', $data['email'])->first();
 
             if ($user) {
-                if (($user['estado'] ?? '') === 'baja') {
-                    return $this->response->setJSON(['message' => 'Usuario dado de baja'])->setStatusCode(403);
+                // Validar si está deshabilitado
+                if (($user['estado'] ?? 0) == 0) {
+                    return $this->response->setJSON(['message' => 'Usuario deshabilitado'])->setStatusCode(403);
                 }
 
+                // Validar contraseña
                 if (password_verify($data['password'], $user['password'])) {
-                    session()->set([
+                    $session->set([
                         'id' => $user['id'],
                         'nombre' => $user['nombre'],
                         'apellido' => $user['apellido'],
@@ -59,11 +64,22 @@ class Auth extends BaseController
                         'isLoggedIn' => true
                     ]);
 
-                    if ($user['identificador'] == 1) {
-                        return $this->response->setJSON(['redirect' => base_url('panel')]);
-                    } else {
-                        return $this->response->setJSON(['redirect' => base_url('/')]);
+                    // Para API/AJAX: Devuelve éxito sin redirección
+                    if ($this->request->isAJAX()) {
+                        return $this->response->setJSON([
+                            'success' => true,
+                            'message' => 'Login exitoso'
+                        ]);
                     }
+
+                    // Para navegación tradicional: Redirección
+                    $redirectUrl = $session->get('redirect_url');
+                    $session->remove('redirect_url');
+
+                    $defaultRedirect = ($user['identificador'] == 1) ? 'panel' : '/';
+                    $finalRedirect = $redirectUrl ?? $defaultRedirect;
+
+                    return redirect()->to($finalRedirect);
                 } else {
                     return $this->response->setJSON(['message' => 'Contraseña incorrecta'])->setStatusCode(401);
                 }

@@ -4,23 +4,33 @@
 
 <div class="container my-5">
     <div class="row">
-        <div class="col-md-8 mx-auto">
+        <div class="col-md-6 mx-auto">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
                     <h3 class="mb-0">Editar Stock</h3>
                 </div>
                 <div class="card-body">
-                    <div class="mb-4">
-                        <h4><?= esc($producto['nombre']) ?></h4>
-                        <p class="text-muted mb-1">Marca: <?= esc($producto['marca']) ?></p>
-                        <p class="text-muted">Precio: $<?= number_format($producto['precio_base'], 2) ?></p>
-                    </div>
+                    <?php if (session()->getFlashdata('errors')): ?>
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                                    <li><?= esc($error) ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('error')): ?>
+                        <div class="alert alert-danger">
+                            <?= session()->getFlashdata('error') ?>
+                        </div>
+                    <?php endif; ?>
 
                     <form action="<?= base_url('catalogo/actualizar_stock/' . $producto['id']) ?>" method="post">
                         <div class="mb-3">
                             <label for="stock" class="form-label">Cantidad en Stock</label>
-                            <input type="number" class="form-control form-control-lg" id="stock" name="stock" 
-                                   value="<?= old('stock', $producto['stock']) ?>" min="0" required>
+                            <input type="number" class="form-control form-control-lg" id="stock" name="stock"
+                                value="<?= old('stock', $producto['stock']) ?>" min="0" required>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">

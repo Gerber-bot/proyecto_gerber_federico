@@ -3,8 +3,9 @@
 
 <div class="container my-5">
     <h1 class="mb-4">Editar Producto</h1>
-    <form action="<?= base_url('catalogo/actualizar/' . $producto['id']) ?>" method="post" enctype="multipart/form-data">
-        
+    <form action="<?= base_url('catalogo/actualizar/' . $producto['id']) ?>" method="post"
+        enctype="multipart/form-data">
+
         <!-- Sección Básica -->
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
@@ -14,27 +15,39 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label class="form-label">Nombre</label>
-                        <input type="text" name="nombre" class="form-control" value="<?= esc($producto['nombre']) ?>" required>
+                        <input type="text" name="nombre" class="form-control" value="<?= esc($producto['nombre']) ?>"
+                            required>
                     </div>
-                    <div class="col-md-6">
-                        <label class="form-label">Marca</label>
-                        <input type="text" name="marca" class="form-control" value="<?= esc($producto['marca']) ?>" required>
+                    <div class="mb-3">
+                        <label for="marca_id" class="form-label">Marca</label>
+                        <select class="form-select" id="marca_id" name="marca_id" required>
+                            <option value="">Seleccionar marca</option>
+                            <?php foreach ($marcas as $marca): ?>
+                                <option value="<?= $marca['id'] ?>" <?= ($marca['id'] == $producto['marca_id']) ? 'selected' : '' ?>>
+                                    <?= esc($marca['nombre']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Año</label>
-                        <input type="number" name="anio" class="form-control" value="<?= esc($producto['anio']) ?>" required>
+                        <input type="number" name="anio" class="form-control" value="<?= esc($producto['anio']) ?>"
+                            required>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Kilómetros</label>
-                        <input type="number" name="kilometros" class="form-control" value="<?= esc($producto['kilometros']) ?>" required>
+                        <input type="number" name="kilometros" class="form-control"
+                            value="<?= esc($producto['kilometros']) ?>" required>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Precio Base</label>
-                        <input type="number" name="precio_base" class="form-control" value="<?= esc($producto['precio_base']) ?>" required step="0.01">
+                        <input type="number" name="precio_base" class="form-control"
+                            value="<?= esc($producto['precio_base']) ?>" required step="0.01">
                     </div>
                     <div class="col-12">
                         <label class="form-label">Descripción Principal</label>
-                        <textarea name="descripcion" class="form-control" required><?= esc($producto['descripcion']) ?></textarea>
+                        <textarea name="descripcion" class="form-control"
+                            required><?= esc($producto['descripcion']) ?></textarea>
                     </div>
                 </div>
             </div>
@@ -49,27 +62,33 @@
                 <div class="row g-3">
                     <div class="col-md-4">
                         <label class="form-label">Motor</label>
-                        <input type="text" name="motor" class="form-control" value="<?= esc($producto['motor'] ?? '') ?>">
+                        <input type="text" name="motor" class="form-control"
+                            value="<?= esc($producto['motor'] ?? '') ?>">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Potencia</label>
-                        <input type="text" name="potencia" class="form-control" value="<?= esc($producto['potencia'] ?? '') ?>">
+                        <input type="text" name="potencia" class="form-control"
+                            value="<?= esc($producto['potencia'] ?? '') ?>">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Transmisión</label>
-                        <input type="text" name="transmision" class="form-control" value="<?= esc($producto['transmision'] ?? '') ?>">
+                        <input type="text" name="transmision" class="form-control"
+                            value="<?= esc($producto['transmision'] ?? '') ?>">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Consumo (L/100km)</label>
-                        <input type="text" name="consumo" class="form-control" value="<?= esc($producto['consumo'] ?? '') ?>">
+                        <input type="text" name="consumo" class="form-control"
+                            value="<?= esc($producto['consumo'] ?? '') ?>">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Capacidad del tanque</label>
-                        <input type="text" name="tanque" class="form-control" value="<?= esc($producto['tanque'] ?? '') ?>">
+                        <input type="text" name="tanque" class="form-control"
+                            value="<?= esc($producto['tanque'] ?? '') ?>">
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">Velocidad máxima</label>
-                        <input type="text" name="velocidad_maxima" class="form-control" value="<?= esc($producto['velocidad_maxima'] ?? '') ?>">
+                        <input type="text" name="velocidad_maxima" class="form-control"
+                            value="<?= esc($producto['velocidad_maxima'] ?? '') ?>">
                     </div>
                 </div>
             </div>
@@ -83,16 +102,17 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label">Descripción de Características</label>
-                    <textarea name="caracteristicas_adicionales" class="form-control" rows="6" 
-                        placeholder="Describe aquí todas las características especiales del vehículo en formato libre. Ej: 
+                    <textarea name="caracteristicas_adicionales" class="form-control" rows="6" placeholder="Describe aquí todas las características especiales del vehículo en formato libre. Ej: 
                         
 - Sistema de dirección asistida eléctrica
 - Bluetooth integrado con manos libres
 - 6 airbags frontales y laterales
 - Frenos ABS con distribución electrónica de fuerza (EBD)
 - Cámara de reversa con guías dinámicas
-- Pantalla táctil de 10.1\" con Android Auto/Apple CarPlay"><?= esc($producto['caracteristicas_adicionales'] ?? '') ?></textarea>
-                    <small class="text-muted">Puedes usar viñetas, saltos de línea o cualquier formato que prefieras.</small>
+- Pantalla táctil de 10.1\" con Android Auto/Apple
+                        CarPlay"><?= esc($producto['caracteristicas_adicionales'] ?? '') ?></textarea>
+                    <small class="text-muted">Puedes usar viñetas, saltos de línea o cualquier formato que
+                        prefieras.</small>
                 </div>
             </div>
         </div>
@@ -105,27 +125,33 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label">Diseño Exterior</label>
-                    <textarea name="diseno_exterior" class="form-control" rows="3"><?= esc($producto['diseno_exterior'] ?? '') ?></textarea>
+                    <textarea name="diseno_exterior" class="form-control"
+                        rows="3"><?= esc($producto['diseno_exterior'] ?? '') ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Diseño Interior</label>
-                    <textarea name="diseno_interior" class="form-control" rows="3"><?= esc($producto['diseno_interior'] ?? '') ?></textarea>
+                    <textarea name="diseno_interior" class="form-control"
+                        rows="3"><?= esc($producto['diseno_interior'] ?? '') ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tamaño del baúl</label>
-                    <textarea name="tamano_baul" class="form-control" rows="3"><?= esc($producto['tamano_baul'] ?? '') ?></textarea>
+                    <textarea name="tamano_baul" class="form-control"
+                        rows="3"><?= esc($producto['tamano_baul'] ?? '') ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Información del motor</label>
-                    <textarea name="motor_info" class="form-control" rows="3"><?= esc($producto['motor_info'] ?? '') ?></textarea>
+                    <textarea name="motor_info" class="form-control"
+                        rows="3"><?= esc($producto['motor_info'] ?? '') ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Neumáticos</label>
-                    <textarea name="neumaticos" class="form-control" rows="3"><?= esc($producto['neumaticos'] ?? '') ?></textarea>
+                    <textarea name="neumaticos" class="form-control"
+                        rows="3"><?= esc($producto['neumaticos'] ?? '') ?></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Accesorios Incluidos (separados por comas)</label>
-                    <textarea name="accesorios" class="form-control" rows="3" placeholder="Ej: Cámaras de retroceso, Kit de tapizados premium, Alfombrillas personalizadas"><?= esc($producto['accesorios'] ?? '') ?></textarea>
+                    <textarea name="accesorios" class="form-control" rows="3"
+                        placeholder="Ej: Cámaras de retroceso, Kit de tapizados premium, Alfombrillas personalizadas"><?= esc($producto['accesorios'] ?? '') ?></textarea>
                 </div>
             </div>
         </div>
@@ -141,10 +167,88 @@
                     <input type="file" name="img_principal" class="form-control">
                     <?php if (!empty($producto['img_principal'])): ?>
                         <div class="mt-2">
-                            <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_principal']) ?>" alt="Imagen actual" style="max-height: 150px;">
+                            <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_principal']) ?>"
+                                alt="Imagen actual" style="max-height: 150px;">
                             <input type="hidden" name="img_principal_actual" value="<?= $producto['img_principal'] ?>">
                         </div>
                     <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <!-- Imágenes adicionales -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4>Imágenes Adicionales</h4>
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Imagen exterior</label>
+                        <input type="file" name="img_exterior" class="form-control" accept="image/*">
+                        <?php if (!empty($producto['img_exterior'])): ?>
+                            <div class="mt-2">
+                                <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_exterior']) ?>"
+                                    alt="Imagen exterior actual" style="max-height: 150px;">
+                                <input type="hidden" name="img_exterior_actual" value="<?= $producto['img_exterior'] ?>">
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Imagen interior 1</label>
+                        <input type="file" name="img_interior1" class="form-control" accept="image/*">
+                        <?php if (!empty($producto['img_interior1'])): ?>
+                            <div class="mt-2">
+                                <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_interior1']) ?>"
+                                    alt="Imagen interior 1 actual" style="max-height: 150px;">
+                                <input type="hidden" name="img_interior1_actual" value="<?= $producto['img_interior1'] ?>">
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Imagen interior 2</label>
+                        <input type="file" name="img_interior2" class="form-control" accept="image/*">
+                        <?php if (!empty($producto['img_interior2'])): ?>
+                            <div class="mt-2">
+                                <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_interior2']) ?>"
+                                    alt="Imagen interior 2 actual" style="max-height: 150px;">
+                                <input type="hidden" name="img_interior2_actual" value="<?= $producto['img_interior2'] ?>">
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Imagen del baúl</label>
+                        <input type="file" name="img_baul" class="form-control" accept="image/*">
+                        <?php if (!empty($producto['img_baul'])): ?>
+                            <div class="mt-2">
+                                <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_baul']) ?>"
+                                    alt="Imagen del baúl actual" style="max-height: 150px;">
+                                <input type="hidden" name="img_baul_actual" value="<?= $producto['img_baul'] ?>">
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Imagen del motor</label>
+                        <input type="file" name="img_motor" class="form-control" accept="image/*">
+                        <?php if (!empty($producto['img_motor'])): ?>
+                            <div class="mt-2">
+                                <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_motor']) ?>"
+                                    alt="Imagen del motor actual" style="max-height: 150px;">
+                                <input type="hidden" name="img_motor_actual" value="<?= $producto['img_motor'] ?>">
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Imagen de neumáticos</label>
+                        <input type="file" name="img_neumaticos" class="form-control" accept="image/*">
+                        <?php if (!empty($producto['img_neumaticos'])): ?>
+                            <div class="mt-2">
+                                <img src="<?= base_url('assets/img/catalogo/productos/' . $producto['img_neumaticos']) ?>"
+                                    alt="Imagen de neumáticos actual" style="max-height: 150px;">
+                                <input type="hidden" name="img_neumaticos_actual"
+                                    value="<?= $producto['img_neumaticos'] ?>">
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>

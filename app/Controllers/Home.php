@@ -6,7 +6,16 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('principal', ['title' => 'Automotors - Inicio']);
+        $marcaModel = new \App\Models\MarcaModel();
+        // Para mostrar solo 6 marcas ordenadas alfabéticamente
+        $data = [
+            'marcas_populares' => $marcaModel->where('estado', 1)
+                ->orderBy('nombre', 'ASC')
+                ->limit(6)
+                ->findAll(),
+            'title' => 'Automotors - Inicio'
+        ];
+        return view('principal', $data);
     }
 
     public function informacion_corporativa(): string
@@ -49,4 +58,5 @@ class Home extends BaseController
     {
         return view('clientes/experiencias', ['title' => 'Experiencias']);
     }
+
 }

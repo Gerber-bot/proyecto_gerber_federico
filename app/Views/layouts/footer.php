@@ -1,7 +1,7 @@
 <footer class="pie-pagina bg-black text-white py-4">
   <div id="contactanos" class="container d-flex flex-column flex-md-row justify-content-between">
 
-    <!-- Columna 1: Contacto y Redes -->
+    <!-- Columna Contacto y Redes -->
     <div class="columna-pie d-flex flex-column mb-4 mb-md-0">
       <h5 class="mb-3">Contacto</h5>
       <span><i class="bi bi-envelope-fill me-2"></i> contacto@automotors.com</span>
@@ -20,7 +20,7 @@
       </button>
     </div>
 
-    <!-- Columna 2: Información -->
+    <!-- Columna Información -->
     <div class="columna-pie d-flex flex-column">
       <h5 class="mb-3">Información</h5>
       <a href="<?= base_url('empresa/informacion_legal') ?>" class="text-white text-decoration-none mb-1">Información Legal</a>

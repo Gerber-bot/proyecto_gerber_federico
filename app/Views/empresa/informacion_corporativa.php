@@ -7,7 +7,7 @@
   <section class="container my-5">
     <div class="row bg-white shadow rounded p-4">
       <div class="col">
-        <h2 class="mb-4 text-center">Información Corporativa</h2>
+        <h2 class="mb-4 text-center">INFORMACIÓN CORPORATIVA</h2>
 
         <p><strong>Automotors S.R.L.</strong> es una empresa argentina dedicada a la venta de vehículos nuevos y usados,
           servicios automotrices y asesoramiento personalizado. Nacida en 2025, se posiciona como una nueva alternativa

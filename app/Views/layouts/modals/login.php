@@ -98,7 +98,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!-- Solo se actualizó el SCRIPT final -->
 
 <script>
   // Toggle para mostrar/ocultar contraseña
@@ -122,52 +121,55 @@
     e.preventDefault();
 
     const form = this;
+    if (!form.checkValidity()) {
+      form.classList.add('was-validated');
+      return;
+    }
+
     const spinner = document.getElementById('loginSpinner');
     const submitButton = form.querySelector('button[type="submit"]');
 
-    if (form.checkValidity()) {
-      spinner.classList.remove('d-none');
-      submitButton.disabled = true;
+    spinner.classList.remove('d-none');
+    submitButton.disabled = true;
 
-      try {
-        const response = await fetch("<?= base_url('auth/login') ?>", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          },
-          body: JSON.stringify({
-            email: document.getElementById('emailLogin').value,
-            password: document.getElementById('passwordLogin').value,
-            remember: document.getElementById('rememberMe').checked
-          })
+    try {
+      const response = await fetch("<?= base_url('auth/login') ?>", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({
+          email: document.getElementById('emailLogin').value,
+          password: document.getElementById('passwordLogin').value,
+          remember: document.getElementById('rememberMe').checked
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalLogin'));
+        if (modal) modal.hide();
+
+        Swal.fire({
+          icon: 'success',
+          title: '¡Inicio exitoso!',
+          text: 'Bienvenido nuevamente',
+          timer: 2000,
+          showConfirmButton: false,
+          willClose: () => window.location.reload()
         });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          Swal.fire({
-            icon: 'success',
-            title: '¡Bienvenido!',
-            text: data.message || 'Inicio de sesión exitoso',
-            timer: 1500,
-            showConfirmButton: false
-          }).then(() => {
-            window.location.href = data.redirect || window.location.href;
-          });
-        } else {
-          Swal.fire('Error', data.message || 'Correo o contraseña incorrectos', 'error');
-        }
-      } catch (error) {
-        console.error(error);
-        Swal.fire('Error', 'No se pudo conectar al servidor', 'error');
-      } finally {
-        spinner.classList.add('d-none');
-        submitButton.disabled = false;
       }
+      else {
+        Swal.fire('Error', data.message || 'Error en el login', 'error');
+      }
+    } catch (error) {
+      Swal.fire('Error', 'Error de conexión', 'error');
+    } finally {
+      spinner.classList.add('d-none');
+      submitButton.disabled = false;
     }
-
-    form.classList.add('was-validated');
   });
 
   // Cambio de modal: Login → Registro
