@@ -50,7 +50,7 @@ class UsuarioController extends BaseController
         'citas' => $citas,
         'consultas' => $consultas,
         'agendas' => $agendas,
-        'buscar' => $buscar // Para mantener el valor en la vista
+        'buscar' => $buscar 
     ];
 
     return view('back/usuarios/listar_view', $data);
@@ -113,7 +113,6 @@ class UsuarioController extends BaseController
 
 
     // Guardar edición de usuario
-    // Guardar edición de usuario (ahora solo para rol)
 public function actualizar($id)
 {
     // Validar solo el campo de rol

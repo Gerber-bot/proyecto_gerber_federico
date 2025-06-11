@@ -27,17 +27,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Marca*</label>
-                        <select name="marca" class="form-select" required>
+                        <select name="marca_id" class="form-select" required>
                             <option value="">Seleccione una marca</option>
-                            <option value="Fiat">Fiat</option>
-                            <option value="Renault">Renault</option>
-                            <option value="Ford">Ford</option>
-                            <option value="Chevrolet">Chevrolet</option>
-                            <option value="Volkswagen">Volkswagen</option>
-                            <option value="Toyota">Toyota</option>
-                            <option value="Honda">Honda</option>
-                            <option value="Hyundai">Hyundai</option>
-                            <!-- Agrega aquí cualquier otra marca que necesites -->
+                            <?php foreach ($marcas as $marca): ?>
+                                <option value="<?= esc($marca['id']) ?>"><?= esc($marca['nombre']) ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                     <div class="col-md-3">
@@ -99,45 +93,24 @@
             </div>
         </div>
 
-        <!-- Características -->
+        <!-- Características Especiales -->
         <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h4>Características</h4>
+            <div class="card-header bg-success text-white">
+                <h4>Características Especiales</h4>
             </div>
             <div class="card-body">
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="direccion_asistida"
-                                id="direccion_asistida">
-                            <label class="form-check-label" for="direccion_asistida">Dirección asistida</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="bluetooth" id="bluetooth">
-                            <label class="form-check-label" for="bluetooth">Bluetooth</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="airbags_frontales"
-                                id="airbags_frontales">
-                            <label class="form-check-label" for="airbags_frontales">Airbags frontales</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="abs_ebd" id="abs_ebd">
-                            <label class="form-check-label" for="abs_ebd">ABS con EBD</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="camara_reversa" id="camara_reversa">
-                            <label class="form-check-label" for="camara_reversa">Cámara de reversa</label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Pantalla táctil</label>
-                            <input type="text" name="pantalla_tactil" class="form-control" placeholder="Ej: 7 pulgadas">
-                        </div>
-                    </div>
+                <div class="mb-3">
+                    <label class="form-label">Descripción de Características</label>
+                    <textarea name="caracteristicas_adicionales" class="form-control" rows="6" placeholder="Describe aquí todas las características especiales del vehículo en formato libre. Ej: 
+                        
+- Sistema de dirección asistida eléctrica
+- Bluetooth integrado con manos libres
+- 6 airbags frontales y laterales
+- Frenos ABS con distribución electrónica de fuerza (EBD)
+- Cámara de reversa con guías dinámicas
+- Pantalla táctil de 10.1\" con Android Auto/Apple CarPlay"></textarea>
+                    <small class="text-muted">Puedes usar viñetas, saltos de línea o cualquier formato que
+                        prefieras.</small>
                 </div>
             </div>
         </div>
@@ -175,8 +148,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Imágenes adicionales -->
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
                 <h4>Imágenes Adicionales</h4>
@@ -210,7 +181,10 @@
                 </div>
             </div>
         </div>
-
+        <div class="col-md-3">
+            <label class="form-label">Stock*</label>
+            <input type="number" name="stock" class="form-control" min="0" required>
+        </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="submit" class="btn btn-primary me-md-2">
                 <i class="bi bi-save"></i> Guardar Producto

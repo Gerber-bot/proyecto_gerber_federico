@@ -5,7 +5,7 @@
   <div class="seccion-conocenos py-5">
     <div class="container">
       <div class="header-conocenos text-center">
-        <h1 class="titulo-principal">Opciones de Compra y Venta</h1>
+        <h1 class="titulo-principal">OPCIONES DE COMPRA Y VENTA</h1>
         <p class="subtitulo">Elegí la forma más segura y confiable de hacer negocios con tu vehículo</p>
       </div>
 

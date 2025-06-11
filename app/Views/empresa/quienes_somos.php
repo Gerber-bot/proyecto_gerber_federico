@@ -9,7 +9,7 @@
         <img src="<?= base_url('assets/img/quienes_somos.jpg') ?>" class="img-fluid rounded" alt="Quiénes somos Automotors">
       </div>
       <div class="col-md-6">
-        <h2 class="mb-3">¿Quiénes Somos?</h2>
+        <h2 class="mb-3">¿QUIÉNES SOMOS?</h2>
         <p><strong>Automotors</strong> nació hace apenas un mes con una misión clara: ofrecer soluciones ágiles,
           confiables y modernas en el mundo automotriz.</p>
         <p>Somos una empresa joven, pero impulsada por una gran pasión por los vehículos, la tecnología y el servicio al

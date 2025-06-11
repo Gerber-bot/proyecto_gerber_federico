@@ -39,11 +39,19 @@ if (!isset($vehiculo) || !$vehiculo) {
 
                 <div class="d-grid gap-2">
                     <?php if ($vehiculo['stock'] > 0): ?>
-                        <!-- Botón para agregar al carrito -->
-                        <a href="<?= base_url('agregar-carrito/' . $vehiculo['id']) ?>" class="btn btn-primary btn-lg py-3">
-                            <i class="bi bi-cart-plus"></i> Añadir al carrito
-                        </a>
+                        <?php if (session('isLoggedIn')): ?>
+                            <!-- Botón normal para usuarios logueados -->
+                            <a href="<?= base_url('agregar-carrito/' . $vehiculo['id']) ?>" class="btn btn-primary btn-lg py-3">
+                                <i class="bi bi-cart-plus"></i> Añadir al carrito
+                            </a>
+                        <?php else: ?>
+                            <!-- Solo botón desactivado (sin acción ni enlace) -->
+                            <button class="btn btn-secondary btn-lg py-3" disabled>
+                                <i class="bi bi-exclamation-circle"></i> Inicia sesión para comprar
+                            </button>
+                        <?php endif; ?>
                     <?php else: ?>
+                        <!-- Botón sin stock -->
                         <button class="btn btn-secondary btn-lg py-3" disabled>
                             <i class="bi bi-exclamation-circle"></i> Sin stock disponible
                         </button>

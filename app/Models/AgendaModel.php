@@ -10,7 +10,6 @@ class AgendaModel extends Model
     // Clave primaria de la tabla
     protected $primaryKey = 'id';
 
-    // Campos permitidos para insertar/actualizar
     protected $allowedFields = [
         'nombre',
         'apellido',
@@ -22,6 +21,5 @@ class AgendaModel extends Model
         'estado' 
     ];
 
-    // No usar timestamps automáticos de CI4 (created_at, updated_at)
     public $timestamps = false;
 }

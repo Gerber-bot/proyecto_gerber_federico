@@ -4,6 +4,18 @@
 
 <div class="container py-5">
     <h1 class="mb-4">Mis Compras</h1>
+    <?php if (session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('error') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+    <?php if (session()->getFlashdata('success')): ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <?= session()->getFlashdata('success') ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
     <?php if (empty($carrito)): ?>
         <div class="alert alert-info">
             Tu carrito está vacío. <a href="<?= base_url('catalogo') ?>">Explora nuestro catálogo</a> para agregar

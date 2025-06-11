@@ -4,9 +4,11 @@
 
 <div class="container my-5">
     <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold text-primary">CATÁLOGO DE VEHÍCULOS</h1>
+        <h1 class="display-4 fw-bold text-dark">CATÁLOGO DE VEHÍCULOS</h1>
+        
         <p class="lead">Descubre nuestra amplia gama de vehículos disponibles</p>
     </div>
+    
 
     <!-- Filtros -->
     <div class="card mb-4">
@@ -14,14 +16,12 @@
             <form method="get" action="<?= base_url('catalogo') ?>" class="row g-3">
                 <div class="col-md-3">
                     <label class="form-label">Marca</label>
-                    <select name="marca" class="form-select">
+                    <select name="marca_id" class="form-select">
                         <option value="">Todas las marcas</option>
                         <?php foreach ($marcas_disponibles as $marca): ?>
-                            <?php if (!empty($marca['marca'])): ?>
-                                <option value="<?= esc($marca['marca']) ?>" <?= ($filtros['marca'] ?? '') == $marca['marca'] ? 'selected' : '' ?>>
-                                    <?= esc(ucfirst(strtolower($marca['marca']))) ?>
-                                </option>
-                            <?php endif; ?>
+                            <option value="<?= esc($marca['id']) ?>" <?= ($filtros['marca_id'] ?? '') == $marca['id'] ? 'selected' : '' ?>>
+                                <?= esc($marca['nombre']) ?>
+                            </option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -101,9 +101,12 @@
                                 class="card-img-top object-fit-cover" alt="<?= esc($producto['nombre']) ?>">
                         </div>
                         <div class="card-body">
+                            <div class="mb-2">
+                                <span
+                                    class="badge bg-primary"><?= esc($producto['marca_nombre'] ?? 'Marca no especificada') ?></span>
+                            </div>
                             <h3 class="card-title fw-bold"><?= esc($producto['nombre']) ?></h3>
                             <p class="card-text text-muted mb-3"><?= esc($producto['descripcion']) ?></p>
-
                             <div class="d-flex flex-wrap gap-3 mb-3">
                                 <?php if (isset($producto['anio'])): ?>
                                     <div class="d-flex align-items-center">

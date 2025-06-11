@@ -9,7 +9,10 @@ class Comentarios extends BaseController
 {
     public function guardar()
     {
+        header('Content-Type: application/json');
+
         try {
+            // 1. Verificar sesión activa
             if (!session()->get('isLoggedIn') || empty(session()->get('nombre'))) {
                 return $this->response->setJSON([
                     'success' => false,
@@ -17,76 +20,105 @@ class Comentarios extends BaseController
                 ])->setStatusCode(ResponseInterface::HTTP_UNAUTHORIZED);
             }
 
+            // 2. Configurar validación
             $validation = \Config\Services::validation();
             $validation->setRules([
-                'comentario' => 'required|string|min_length[3]',
-                'imagen' => 'permit_empty|is_image[imagen]|mime_in[imagen,image/jpg,image/jpeg,image/png]|max_size[imagen,2048]'
+                'comentario' => [
+                    'rules' => 'required|string|min_length[3]|max_length[1000]',
+                    'errors' => [
+                        'required' => 'El comentario es obligatorio',
+                        'min_length' => 'El comentario debe tener al menos 3 caracteres',
+                        'max_length' => 'El comentario no puede exceder 1000 caracteres'
+                    ]
+                ],
+                'imagen' => [
+                    'rules' => 'permit_empty|uploaded[imagen]|is_image[imagen]|mime_in[imagen,image/jpg,image/jpeg,image/png]|max_size[imagen,2048]',
+                    'errors' => [
+                        'uploaded' => 'Error al subir la imagen',
+                        'is_image' => 'El archivo debe ser una imagen',
+                        'mime_in' => 'Solo se permiten imágenes JPG, JPEG o PNG',
+                        'max_size' => 'La imagen no debe superar 2MB'
+                    ]
+                ]
             ]);
 
+            // 3. Ejecutar validación
             if (!$validation->withRequest($this->request)->run()) {
                 return $this->response->setJSON([
                     'success' => false,
-                    'message' => 'Error de validación',
+                    'message' => 'Error en los datos enviados',
                     'errors' => $validation->getErrors()
                 ])->setStatusCode(ResponseInterface::HTTP_BAD_REQUEST);
             }
 
+            // 4. Procesar imagen
             $nombreImagen = null;
             $imagen = $this->request->getFile('imagen');
 
             if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
                 $nombreImagen = $imagen->getRandomName();
                 $rutaDestino = FCPATH . 'assets/uploads/comentarios/';
+
+                // Crear directorio si no existe
                 if (!is_dir($rutaDestino)) {
                     mkdir($rutaDestino, 0777, true);
                 }
-                $imagen->move($rutaDestino, $nombreImagen);
+
+                // Mover imagen al directorio
+                if (!$imagen->move($rutaDestino, $nombreImagen)) {
+                    throw new \RuntimeException('No se pudo guardar la imagen en el servidor');
+                }
             }
 
+            // 5. Guardar en base de datos
             $model = new ComentarioModel();
-            $insertado = $model->insert([
-                'usuario'       => session()->get('nombre'),
-                'comentario'    => $this->request->getPost('comentario'),
-                'imagen'        => $nombreImagen,
-                'fecha_subida'  => date('Y-m-d H:i:s')
-            ]);
+            $fecha = new \DateTime('now', new \DateTimeZone('America/Argentina/Buenos_Aires'));
+            $data = [
+                'usuario' => session()->get('nombre') . ' ' . session()->get('apellido'),
+                'comentario' => $this->request->getPost('comentario'),
+                'imagen' => $nombreImagen,
+                'fecha_subida' => $fecha->format('Y-m-d H:i:s')
+            ];
+
+            $insertado = $model->insert($data);
 
             if (!$insertado) {
+                log_message('error', 'Error al insertar comentario: ' . print_r($model->errors(), true));
                 return $this->response->setJSON([
                     'success' => false,
-                    'message' => 'Error al guardar en base de datos',
+                    'message' => 'Error al guardar en la base de datos',
                     'db_errors' => $model->errors()
                 ])->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
             }
 
+            // 6. Obtener el comentario recién creado
+            $nuevoComentario = $model->find($model->getInsertID());
+
+            // 7. Respuesta exitosa
             return $this->response->setJSON([
                 'success' => true,
-                'message' => 'Comentario guardado correctamente',
-                'insert_id' => $model->getInsertID()
+                'message' => 'Comentario publicado exitosamente',
+                'nuevoComentario' => $nuevoComentario,
+                'insert_id' => $model->getInsertID(),
+                'reload' => false // Cambiar a true para recarga automática
             ]);
+
         } catch (\Throwable $e) {
+            log_message('error', 'Error en Comentarios::guardar - ' . $e->getMessage() . "\n" . $e->getTraceAsString());
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'Error en el servidor',
-                'error' => $e->getMessage()
+                'message' => 'Ocurrió un error inesperado',
+                'error' => (ENVIRONMENT === 'development') ? $e->getMessage() : null,
+                'trace' => (ENVIRONMENT === 'development') ? $e->getTraceAsString() : null
             ])->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
-    public function listar()
+    // Método para mostrar imágenes
+    public function mostrarImagen($nombreImagen)
     {
-        $model = new ComentarioModel();
-        $comentarios = $model->orderBy('fecha_subida', 'DESC')->findAll();
+        $ruta = FCPATH . 'assets/uploads/comentarios/' . $nombreImagen;
 
-        return $this->response->setJSON([
-            'success' => true,
-            'comentarios' => $comentarios
-        ]);
-    }
-
-    public function mostrarImagen($nombre)
-    {
-        $ruta = FCPATH . 'assets/uploads/comentarios/' . $nombre;
         if (!file_exists($ruta)) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
         }
@@ -96,4 +128,37 @@ class Comentarios extends BaseController
         readfile($ruta);
         exit;
     }
+
+    // Método para listar comentarios
+    public function listar()
+    {
+        try {
+            $model = new ComentarioModel();
+            $comentariosBD = $model->orderBy('fecha_subida', 'DESC')->findAll();
+
+            $comentarios = [];
+
+            foreach ($comentariosBD as $comentario) {
+                $comentarios[] = [
+                    'usuario' => $comentario['usuario'], // ya tiene nombre + apellido
+                    'comentario' => $comentario['comentario'],
+                    'fecha_subida' => $comentario['fecha_subida'],
+                    'imagen' => $comentario['imagen']
+                ];
+            }
+
+            return $this->response->setJSON([
+                'success' => true,
+                'comentarios' => $comentarios
+            ]);
+
+        } catch (\Throwable $e) {
+            log_message('error', 'Error en Comentarios::listar - ' . $e->getMessage());
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Error al cargar comentarios'
+            ])->setStatusCode(ResponseInterface::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

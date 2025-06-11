@@ -73,7 +73,161 @@ a {
   transition: var(--transition-medium);
 }
 
-/* Encabezado y Navbar */
+/* ----------------------------- */
+/* BOTONES MEJORADOS */
+/* ----------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  transition: var(--transition-medium);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-dark);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--text-dark);
+}
+
+.btn-dark {
+  background-color: var(--gray-800);
+  color: var(--text-light);
+}
+
+.btn-dark:hover {
+  background-color: var(--gray-700);
+  color: var(--primary-color);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.btn-ripple:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+/* ----------------------------- */
+/* ENLACES MEJORADOS */
+/* ----------------------------- */
+.link-underline {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width var(--transition-medium);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+.link-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-medium);
+}
+
+.link-icon:hover {
+  gap: 10px;
+}
+
+/* ----------------------------- */
+/* NAVBAR MEJORADO */
+/* ----------------------------- */
+.navbar {
+  transition: all var(--transition-medium);
+  padding: 15px 0;
+}
+
+.navbar.scrolled {
+  padding: 8px 0;
+  background-color: rgba(14, 14, 14, 0.95) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  transition: all var(--transition-medium);
+}
+
+.navbar.scrolled .navbar-brand img {
+  height: 40px;
+}
+
 .navbar-dark .navbar-nav .nav-link {
   position: relative;
   transition: all var(--transition-medium);
@@ -111,7 +265,9 @@ a {
   position: absolute;
 }
 
+/* ----------------------------- */
 /* BARRA PRINCIPAL */
+/* ----------------------------- */
 .barra-principal {
   display: flex;
   flex-wrap: wrap;
@@ -154,7 +310,9 @@ a {
   width: 100%;
 }
 
+/* ----------------------------- */
 /* CARRUSEL */
+/* ----------------------------- */
 .carousel-caption {
   background: rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -182,7 +340,9 @@ a {
   color: var(--text-dark);
 }
 
+/* ----------------------------- */
 /* MARCAS */
+/* ----------------------------- */
 .marcas {
   background-color: var(--gray-900);
   text-align: center;
@@ -233,7 +393,9 @@ a {
   font-weight: 500;
 }
 
+/* ----------------------------- */
 /* CONÓCENOS */
+/* ----------------------------- */
 .header-conocenos {
   margin-bottom: 60px;
 }
@@ -295,7 +457,9 @@ a {
   line-height: 1.8;
 }
 
+/* ----------------------------- */
 /* SERVICIOS */
+/* ----------------------------- */
 .card-servicio {
   background-color: transparent;
   text-align: center;
@@ -337,7 +501,36 @@ a {
   color: var(--primary-color);
 }
 
+/* ----------------------------- */
+/* MEJORAS PARA CARDS */
+/* ----------------------------- */
+.card {
+  transition: all var(--transition-medium);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.card-img-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 40%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+}
+
+.card:hover .card-img-overlay {
+  opacity: 1;
+}
+
+/* ----------------------------- */
 /* PIE DE PÁGINA */
+/* ----------------------------- */
 .pie-pagina {
   color: var(--text-light);
   padding: 50px 5% 40px;
@@ -374,7 +567,40 @@ a {
   transform: translateX(5px);
 }
 
+/* ----------------------------- */
+/* FORMULARIOS MEJORADOS */
+/* ----------------------------- */
+.form-control {
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  padding: 12px 15px;
+  transition: all var(--transition-medium);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+.form-floating label {
+  color: var(--gray-500);
+  transition: all var(--transition-medium);
+}
+
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label {
+  color: var(--primary-color);
+  transform: scale(0.85) translateY(-1.5rem) translateX(0.15rem);
+}
+
+.input-group-text {
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-300);
+}
+
+/* ----------------------------- */
 /* UTILIDADES Y RESPONSIVE */
+/* ----------------------------- */
 .titulo-seccion {
   font-size: 2rem;
   font-weight: 600;
@@ -396,6 +622,81 @@ a {
   background: var(--primary-color);
 }
 
+/* ----------------------------- */
+/* ANIMACIONES */
+/* ----------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 193, 7, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----------------------------- */
+/* ESTILOS PARA EL CATÁLOGO */
+/* ----------------------------- */
+.card-img-top-container {
+  position: relative;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+/* Estilos para la vista de detalle */
+.rounded-3 {
+  border-radius: 0.75rem !important;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #dee2e6 !important;
+}
+
+.seccion-imagen {
+  height: 300px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* ----------------------------- */
+/* MEDIA QUERIES */
+/* ----------------------------- */
 @media (max-width: 992px) {
   .barra-principal {
     flex-direction: column;
@@ -439,6 +740,19 @@ a {
   .card-servicio h3 {
     font-size: 1.4rem;
   }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .navbar-collapse {
+    background-color: var(--gray-900);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
 }
 
 @media (max-width: 576px) {
@@ -453,39 +767,131 @@ a {
   .card-servicio p {
     font-size: 1rem;
   }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    width: 100%;
+  }
 }
 
-/* Estilos para el catálogo */
-.card-img-top-container {
-  position: relative;
+
+/* Contenedor principal de comentarios (igual que tu versión) */
+.comentarios-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.object-fit-cover {
-  object-fit: cover;
+/* Tarjeta de comentario individual (mejorada para imágenes) */
+.comentario-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  /* Cambios mínimos pero efectivos: */
+  display: flow-root;
+  /* Soluciona problemas de contención sin afectar diseño */
 }
 
-/* Mejoras para las cards */
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 0.75rem;
+.comentario-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+/* Encabezado del comentario (igual que tu versión) */
+.comentario-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
 }
 
-/* Estilos para la vista de detalle */
-.rounded-3 {
-  border-radius: 0.75rem !important;
+/* Nombre de usuario (igual que tu versión) */
+.usuario-tag {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-right: 10px;
+  font-size: 1.1rem;
 }
 
-.border-bottom {
-  border-bottom: 2px solid #dee2e6 !important;
+.usuario-tag::before {
+  content: "@";
+  color: #3498db;
 }
 
-.seccion-imagen {
-  height: 300px;
-  object-fit: cover;
-  width: 100%;
+/* Fecha del comentario (igual que tu versión) */
+.comentario-fecha {
+  color: #7f8c8d;
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+/* Cuerpo del comentario (ligeramente mejorado) */
+.comentario-texto {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #34495e;
+  padding: 10px 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Línea separadora (igual que tu versión) */
+.comentario-separador {
+  height: 1px;
+  background: #ecf0f1;
+  margin: 15px 0;
+}
+
+.comentario-imagen {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f8f9fa;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+
+.comentario-imagen-contenedor {
+  margin-top: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+  /* Fondo para imágenes con transparencia */
+}
+
+.comentario-imagen {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+
+/* Animación para nuevos comentarios */
+.comentario-card.nuevo {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
