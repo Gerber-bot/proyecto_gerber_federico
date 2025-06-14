@@ -25,7 +25,6 @@
         <table class="table table-striped table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
                     <th>Marca</th>
                     <th>Precio</th>
@@ -37,7 +36,6 @@
             <tbody>
                 <?php foreach ($productos as $producto): ?>
                     <tr>
-                        <td><?= $producto['id'] ?></td>
                         <td><?= esc($producto['nombre']) ?></td>
                         <td><?= esc($producto['marca']) ?></td>
                         <td>$<?= number_format($producto['precio_base'], 2) ?></td>
