@@ -14,47 +14,47 @@ class UsuarioController extends BaseController
 
     // Listar todos los usuarios habilitados
     public function index()
-{
-    $buscar = $this->request->getGet('buscar');
+    {
+        $buscar = $this->request->getGet('buscar');
 
-    if ($buscar) {
-        $usuarios = $this->usuarioModel
-            ->groupStart()
+        if ($buscar) {
+            $usuarios = $this->usuarioModel
+                ->groupStart()
                 ->like('nombre', $buscar)
                 ->orLike('apellido', $buscar)
                 ->orLike('email', $buscar)
-            ->groupEnd()
-            ->orderBy('id', 'DESC')
+                ->groupEnd()
+                ->orderBy('id', 'DESC')
+                ->findAll();
+        } else {
+            $usuarios = $this->usuarioModel
+                ->orderBy('id', 'DESC')
+                ->findAll();
+        }
+
+        // Resto de los modelos
+        $citaModel = new \App\Models\CitaClienteModel();
+        $citas = $citaModel->orderBy('fecha_creacion', 'DESC')->findAll();
+
+        $consultaModel = new \App\Models\ConsultaModel();
+        $consultas = $consultaModel
+            ->orderBy('atendida', 'ASC')
+            ->orderBy('fecha', 'DESC')
             ->findAll();
-    } else {
-        $usuarios = $this->usuarioModel
-            ->orderBy('id', 'DESC')
-            ->findAll();
+
+        $agendaModel = new \App\Models\AgendaModel();
+        $agendas = $agendaModel->orderBy('fecha', 'DESC')->findAll();
+
+        $data = [
+            'usuarios' => $usuarios,
+            'citas' => $citas,
+            'consultas' => $consultas,
+            'agendas' => $agendas,
+            'buscar' => $buscar
+        ];
+
+        return view('back/usuarios/listar_view', $data);
     }
-
-    // Resto de los modelos
-    $citaModel = new \App\Models\CitaClienteModel();
-    $citas = $citaModel->orderBy('fecha_creacion', 'DESC')->findAll();
-
-    $consultaModel = new \App\Models\ConsultaModel();
-    $consultas = $consultaModel
-        ->orderBy('atendida', 'ASC')
-        ->orderBy('fecha', 'DESC')
-        ->findAll();
-
-    $agendaModel = new \App\Models\AgendaModel();
-    $agendas = $agendaModel->orderBy('fecha', 'DESC')->findAll();
-
-    $data = [
-        'usuarios' => $usuarios,
-        'citas' => $citas,
-        'consultas' => $consultas,
-        'agendas' => $agendas,
-        'buscar' => $buscar 
-    ];
-
-    return view('back/usuarios/listar_view', $data);
-}
 
 
 
@@ -113,33 +113,40 @@ class UsuarioController extends BaseController
 
 
     // Guardar edición de usuario
-public function actualizar($id)
-{
-    // Validar solo el campo de rol
-    $validationRules = [
-        'identificador' => 'required|in_list[0,1]'
-    ];
+    public function actualizar($id)
+    {
+        // Validar solo el campo de rol
+        $validationRules = [
+            'identificador' => 'required|in_list[0,1]'
+        ];
 
-    if (!$this->validate($validationRules)) {
-        return redirect()->back()
-               ->withInput()
-               ->with('errors', $this->validator->getErrors());
+        if (!$this->validate($validationRules)) {
+            return redirect()->back()
+                ->withInput()
+                ->with('errors', $this->validator->getErrors());
+        }
+
+        // Actualizar solo el rol
+        $this->usuarioModel->update($id, [
+            'identificador' => $this->request->getPost('identificador')
+        ]);
+
+        return redirect()->to('/usuarios')
+            ->with('msg', 'Rol de usuario actualizado correctamente');
     }
-
-    // Actualizar solo el rol
-    $this->usuarioModel->update($id, [
-        'identificador' => $this->request->getPost('identificador')
-    ]);
-
-    return redirect()->to('/usuarios')
-           ->with('msg', 'Rol de usuario actualizado correctamente');
-}
 
     // Deshabilitar usuario por ID
     public function deshabilitar($id)
     {
+        // Check if user can be disabled
+        if (!$this->usuarioModel->canBeDisabled($id)) {
+            return redirect()->to('/usuarios')
+                ->with('error', 'No puedes deshabilitar tu propia cuenta');
+        }
+
         $this->usuarioModel->update($id, ['estado' => 0]);
-        return redirect()->to('/usuarios')->with('msg', 'Usuario deshabilitado correctamente');
+        return redirect()->to('/usuarios')
+            ->with('msg', 'Usuario deshabilitado correctamente');
     }
 
     // Habilitar usuario por ID

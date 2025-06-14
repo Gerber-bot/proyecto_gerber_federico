@@ -58,10 +58,12 @@
                       <i class="bi bi-pencil-square"></i>
                     </a>
                     <?php if ($u['estado'] == 1): ?>
-                      <a href="<?= site_url('usuarios/deshabilitar/' . $u['id']) ?>" class="btn btn-danger"
-                        onclick="return confirm('¿Deshabilitar este usuario?')">
-                        <i class="bi bi-person-dash-fill"></i>
-                      </a>
+                      <?php if ($u['id'] != session()->get('id')): // Only show if not current user ?>
+                        <a href="<?= site_url('usuarios/deshabilitar/' . $u['id']) ?>" class="btn btn-danger"
+                          onclick="return confirm('¿Deshabilitar este usuario?')">
+                          <i class="bi bi-person-dash-fill"></i>
+                        </a>
+                      <?php endif; ?>
                     <?php else: ?>
                       <a href="<?= site_url('usuarios/habilitar/' . $u['id']) ?>" class="btn btn-success"
                         onclick="return confirm('¿Habilitar este usuario?')">

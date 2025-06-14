@@ -34,6 +34,9 @@
             </select>
         </div>
         <button type="submit" class="btn btn-success">Guardar Usuario</button>
+        <a href="<?= base_url('usuarios') ?>" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left"></i> Canselar
+        </a>
     </form>
 </div>
 <?= $this->endSection() ?>
