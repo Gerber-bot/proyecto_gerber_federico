@@ -78,7 +78,7 @@ document.getElementById('formConsulta').addEventListener('submit', function(e) {
 });
 </script>
 
-<!-- Agrega este toast para mostrar mensajes (opcional pero recomendado) -->
+<!-- Agrega este toast para mostrar mensajes  -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">

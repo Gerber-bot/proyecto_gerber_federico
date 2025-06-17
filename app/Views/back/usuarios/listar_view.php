@@ -58,7 +58,7 @@
                       <i class="bi bi-pencil-square"></i>
                     </a>
                     <?php if ($u['estado'] == 1): ?>
-                      <?php if ($u['id'] != session()->get('id')): // Only show if not current user ?>
+                      <?php if ($u['id'] != session()->get('id')): ?>
                         <a href="<?= site_url('usuarios/deshabilitar/' . $u['id']) ?>" class="btn btn-danger"
                           onclick="return confirm('¿Deshabilitar este usuario?')">
                           <i class="bi bi-person-dash-fill"></i>
@@ -179,10 +179,6 @@
                         <i class="bi bi-check-circle-fill"></i>
                       </a>
                     <?php endif; ?>
-                    <a href="<?= site_url('consultas/eliminar/' . $consulta['id']) ?>" class="btn btn-sm btn-danger"
-                      onclick="return confirm('¿Eliminar esta consulta?')">
-                      <i class="bi bi-trash-fill"></i>
-                    </a>
                   </td>
                 </tr>
               <?php endforeach; ?>

@@ -169,7 +169,6 @@ class CatalogoController extends BaseController
 
         try {
             // Debug: mostrar datos antes de insertar
-            // dd($data);
 
             $productoModel->insert($data);
             return redirect()->to('catalogo')->with('success', 'Vehículo agregado correctamente');
@@ -188,14 +187,13 @@ class CatalogoController extends BaseController
         try {
             $productoModel = new ProductoModel();
 
-            // Simple find first to verify product exists
             $vehiculo = $productoModel->find($id);
 
             if (!$vehiculo) {
                 throw new \Exception('Vehículo no encontrado');
             }
 
-            // If you need marca info, join with marcas table
+            
             $vehiculo = $productoModel->select('productos.*, marcas.nombre as marca_nombre')
                 ->join('marcas', 'marcas.id = productos.marca_id')
                 ->where('productos.id', $id)
@@ -598,7 +596,6 @@ class CatalogoController extends BaseController
             return redirect()->route('catalogo_admin')->with('error', 'Vehículo no encontrado');
         }
 
-        // Rename marca_nombre to marca for view compatibility
         $producto['marca'] = $producto['marca_nombre'];
 
         return view('catalogo/editar_stock', ['producto' => $producto]);

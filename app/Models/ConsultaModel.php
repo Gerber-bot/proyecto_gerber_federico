@@ -12,3 +12,4 @@ class ConsultaModel extends Model
     
     protected $order = 'fecha DESC';
 }
+

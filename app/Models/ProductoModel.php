@@ -100,7 +100,6 @@ class ProductoModel extends Model
     /**
      * Obtiene productos con información de marca
      */
-    // In ProductoModel.php
     public function getWithMarca($id = null)
     {
         $builder = $this->select('productos.*, marcas.nombre as marca_nombre')

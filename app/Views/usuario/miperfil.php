@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<!-- Animaciones de Bootstrap y Animate.css (si tienes animate.css) -->
+<!-- Animaciones de Bootstrap  -->
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
