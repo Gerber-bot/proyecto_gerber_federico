@@ -24,14 +24,14 @@ class UsuarioModel extends Model
     protected $useTimestamps = true;
 
     /**
-     * Check if a user can be disabled
+     * Check si un usuario puede ser deshabilitado
      */
     public function canBeDisabled($userId)
     {
-        // Get current user ID from session
+        // Toma el usuario ID de la sesion
         $currentUserId = session()->get('id');
 
-        // User cannot disable themselves
+        // Usuario no puede ser deshabilitarse a si mismo
         if ($userId == $currentUserId) {
             return false;
         }

@@ -248,11 +248,11 @@
 
                         this.reset();
 
-                        // Verificar que existe data.nuevoComentario antes de agregarlo
+                        
                         if (data.nuevoComentario) {
                             agregarComentario(data.nuevoComentario, true);
                         } else {
-                            // Si no viene el comentario, recargar todos
+                            // Si no viene el comentario, recarga todos
                             cargarComentarios();
                         }
 
@@ -283,7 +283,7 @@
         });
     }
 
-    // Función para iniciar el intervalo de recarga
+    // Iniciar el intervalo de recarga
     function iniciarIntervaloRecarga() {
         clearInterval(intervaloRecarga); // Limpiar por si acaso
         intervaloRecarga = setInterval(() => {
@@ -294,9 +294,9 @@
         }, 30000); // 30 segundos
     }
 
-    // Iniciar tooltips y cargar comentarios al cargar la página
+    // Inicia tooltips y cargar comentarios al cargar la página
     document.addEventListener('DOMContentLoaded', function () {
-        // Iniciar tooltips de Bootstrap
+        // Inicia tooltips de Bootstrap
         const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl);

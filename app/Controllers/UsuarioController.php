@@ -32,9 +32,12 @@ class UsuarioController extends BaseController
                 ->findAll();
         }
 
-        // Resto de los modelos
         $citaModel = new \App\Models\CitaClienteModel();
-        $citas = $citaModel->orderBy('fecha_creacion', 'DESC')->findAll();
+        $citas = $citaModel
+            ->select('*')
+            ->orderBy("FIELD(estado, 'pendiente', 'completada', 'cancelada')")
+            ->orderBy('fecha_creacion', 'ASC') // ASC para mostrar las más antiguas primero
+            ->findAll();
 
         $consultaModel = new \App\Models\ConsultaModel();
         $consultas = $consultaModel
@@ -138,7 +141,7 @@ class UsuarioController extends BaseController
     // Deshabilitar usuario por ID
     public function deshabilitar($id)
     {
-        // Check if user can be disabled
+        // prueba si el usuario puede ser bloqueado
         if (!$this->usuarioModel->canBeDisabled($id)) {
             return redirect()->to('/usuarios')
                 ->with('error', 'No puedes deshabilitar tu propia cuenta');

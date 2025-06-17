@@ -195,7 +195,7 @@ class CatalogoController extends BaseController
                 throw new \Exception('Vehículo no encontrado');
             }
 
-            // If you need marca info, join with marcas table
+            
             $vehiculo = $productoModel->select('productos.*, marcas.nombre as marca_nombre')
                 ->join('marcas', 'marcas.id = productos.marca_id')
                 ->where('productos.id', $id)
@@ -598,7 +598,6 @@ class CatalogoController extends BaseController
             return redirect()->route('catalogo_admin')->with('error', 'Vehículo no encontrado');
         }
 
-        // Rename marca_nombre to marca for view compatibility
         $producto['marca'] = $producto['marca_nombre'];
 
         return view('catalogo/editar_stock', ['producto' => $producto]);

@@ -14,7 +14,7 @@ class Consultas extends BaseController
     public function __construct()
     {
         $this->usuarioModel = new UsuarioModel();
-        $this->citaClienteModel = new CitaClienteModel(); 
+        $this->citaClienteModel = new CitaClienteModel();
         $this->consultaModel = new ConsultaModel();
     }
     public function guardar()
@@ -59,12 +59,5 @@ class Consultas extends BaseController
         $this->consultaModel->update($id, ['atendida' => 1]);
         return redirect()->back();
     }
-
-    public function eliminar($id)
-    {
-        $this->consultaModel->delete($id);
-        return redirect()->back();
-    }
-
 
 }
