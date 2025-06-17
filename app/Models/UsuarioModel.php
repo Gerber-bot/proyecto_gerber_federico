@@ -24,7 +24,7 @@ class UsuarioModel extends Model
     protected $useTimestamps = true;
 
     /**
-     * Check si un usuario puede ser deshabilitado
+     * Verifica si un usuario puede ser deshabilitado
      */
     public function canBeDisabled($userId)
     {

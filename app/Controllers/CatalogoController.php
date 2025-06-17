@@ -169,7 +169,6 @@ class CatalogoController extends BaseController
 
         try {
             // Debug: mostrar datos antes de insertar
-            // dd($data);
 
             $productoModel->insert($data);
             return redirect()->to('catalogo')->with('success', 'Vehículo agregado correctamente');
@@ -188,7 +187,6 @@ class CatalogoController extends BaseController
         try {
             $productoModel = new ProductoModel();
 
-            // Simple find first to verify product exists
             $vehiculo = $productoModel->find($id);
 
             if (!$vehiculo) {
